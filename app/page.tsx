@@ -8,8 +8,8 @@ import FloatingContact from "./components/FloatingContact"
 
 const t = {
   zh: {
-    heroTag: "加拿大持牌移民顾问 · ICCRC Licensed",
-    heroTitle: "专业移民服务",
+    heroTag: "Richmond BC 持牌移民顾问 · RCIC Licensed",
+    heroTitle: "列治文专业移民服务",
     heroSub: "用心做好细节，以诚赢得信赖",
     heroDesc: "佳阳移民深耕加拿大移民领域近7年，为华人及各族裔客户提供全面专业的移民服务。",
     heroBtn: "立即免费咨询",
@@ -77,8 +77,8 @@ const t = {
     footerLicense: "加拿大持牌移民顾问",
   },
   en: {
-    heroTag: "Licensed Canadian Immigration Consultant · ICCRC Licensed",
-    heroTitle: "Professional Immigration Services",
+    heroTag: "Richmond BC Licensed Immigration Consultant · RCIC Licensed",
+    heroTitle: "Richmond Professional Immigration Services",
     heroSub: "Attention to Detail. Trust Through Integrity.",
     heroDesc: "JiaYang Immigration has served Chinese and multicultural clients across Canada for nearly 7 years with expertise and care.",
     heroBtn: "Free Consultation",
