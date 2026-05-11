@@ -16,8 +16,8 @@ const lora = Lora({
 })
 
 export const metadata: Metadata = {
-  title: "佳阳移民 | JiaYang Immigration — 加拿大专业移民顾问",
-  description: "佳阳移民提供难民、家庭团聚、留学、旅游探亲、延期续签、入籍及枫叶卡更新等全面移民服务。持牌RCIC移民顾问，专业可信赖。",
+  title: "佳阳移民 | Richmond RCIC 持牌移民顾问 | JiaYang Immigration",
+  description: "佳阳移民是 Richmond BC 持牌移民顾问（RCIC），提供家庭团聚、工签、学签、旅游签、入籍及枫叶卡更新等全面移民服务。专业可信赖。",
   metadataBase: new URL("https://jiayangimmigration.com"),
   verification: { google: "3DtVqQJdYiZJCdtgYp5ybZVFQPBLOzJ0w-XwCP75ctk" },
 }
@@ -38,7 +38,7 @@ const schema = {
     "postalCode": "V6X 3M6",
     "addressCountry": "CA"
   },
-  "areaServed": "Canada",
+  "areaServed": ["Richmond BC", "Vancouver", "Burnaby", "Surrey", "Canada"],
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5.0",
