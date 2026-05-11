@@ -275,7 +275,6 @@ function Home() {
               {[
                 { label: tx.phone, value: "+1 (604) 238-6686" },
                 { label: tx.email, value: "jy.simon.ca@gmail.com" },
-                { label: tx.wechat, value: "Kris0214" },
                 { label: tx.address, value: "5599 Cooney Rd, Unit 2, Richmond, BC V6X 3M6" },
               ].map((item) => (
                 <div key={item.label} className="flex gap-6 border-b border-[#2A3E60] pb-6">
@@ -283,6 +282,13 @@ function Home() {
                   <span className="text-white text-sm">{item.value}</span>
                 </div>
               ))}
+              <div className="flex gap-6 pt-2">
+                <span className="text-[10px] tracking-[0.3em] uppercase text-[#C4873A] w-14 pt-1 shrink-0">{tx.wechat}</span>
+                <div>
+                  <img src="/wechat-qr.jpg" alt="WeChat QR Code" className="w-32 h-32 object-cover" />
+                  <p className="text-[#5A7090] text-xs mt-2">Kris0214</p>
+                </div>
+              </div>
             </div>
             <form action="https://formspree.io/f/xpqbkzdy" method="POST" className="space-y-4">
               <input type="text" name="name" placeholder={tx.formName} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A]" />
