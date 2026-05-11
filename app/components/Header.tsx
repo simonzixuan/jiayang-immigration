@@ -25,15 +25,15 @@ export default function Header() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-[60] bg-[#FEFCF8]/95 backdrop-blur-sm border-b border-[#E8D8BC]">
+      <nav className="fixed top-0 left-0 right-0 z-[60] bg-[#1B2B4E]/95 backdrop-blur-sm border-b border-[#2A3E60]">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex flex-col leading-tight">
-            <span className="text-sm font-medium text-[#2A1F0E] tracking-wide">佳阳移民</span>
+            <span className="text-sm font-medium text-white tracking-wide">佳阳移民</span>
             <span className="text-[10px] tracking-[0.2em] uppercase text-[#C4873A]">JiaYang Immigration</span>
           </div>
-          <div className="hidden md:flex items-center gap-8 text-[11px] tracking-[0.15em] uppercase text-[#6B5535]">
+          <div className="hidden md:flex items-center gap-8 text-[11px] tracking-[0.15em] uppercase text-[#A8B8D0]">
             {links.map(link => (
-              <a key={link.label} href={link.href} className="hover:text-[#C4873A] transition-colors">
+              <a key={link.label} href={link.href} className="hover:text-white transition-colors">
                 {link.label}
               </a>
             ))}
@@ -50,21 +50,21 @@ export default function Header() {
             className="md:hidden flex flex-col justify-center gap-[5px] w-10 h-10"
             aria-label={open ? "关闭菜单" : "打开菜单"}
           >
-            <span className={`block w-5 h-px bg-[#2A1F0E] transition-all duration-200 origin-center ${open ? "rotate-45 translate-y-[6px]" : ""}`} />
-            <span className={`block w-5 h-px bg-[#2A1F0E] transition-all duration-200 ${open ? "opacity-0" : ""}`} />
-            <span className={`block w-5 h-px bg-[#2A1F0E] transition-all duration-200 origin-center ${open ? "-rotate-45 -translate-y-[6px]" : ""}`} />
+            <span className={`block w-5 h-px bg-white transition-all duration-200 origin-center ${open ? "rotate-45 translate-y-[6px]" : ""}`} />
+            <span className={`block w-5 h-px bg-white transition-all duration-200 ${open ? "opacity-0" : ""}`} />
+            <span className={`block w-5 h-px bg-white transition-all duration-200 origin-center ${open ? "-rotate-45 -translate-y-[6px]" : ""}`} />
           </button>
         </div>
       </nav>
 
       {open && (
-        <div className="fixed inset-0 top-16 z-50 bg-[#FEFCF8] flex flex-col items-center justify-center gap-10 md:hidden">
+        <div className="fixed inset-0 top-16 z-50 bg-[#1B2B4E] flex flex-col items-center justify-center gap-10 md:hidden">
           {links.map(link => (
             <a
               key={link.label}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="text-[#2A1F0E] text-base tracking-[0.3em] uppercase font-light"
+              className="text-white text-base tracking-[0.3em] uppercase font-light"
             >
               {link.label}
             </a>

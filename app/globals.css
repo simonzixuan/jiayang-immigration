@@ -3,13 +3,6 @@
 @theme inline {
   --font-sans: var(--font-noto-sans);
   --font-display: var(--font-lora);
-  --color-cream: #FBF6EE;
-  --color-cream-dark: #F0E6D2;
-  --color-gold: #C4873A;
-  --color-gold-dark: #8B6012;
-  --color-ink: #2A1F0E;
-  --color-ink-light: #6B5535;
-  --color-warm-white: #FEFCF8;
 }
 
 @utility font-display {
@@ -17,6 +10,6 @@
 }
 
 body {
-  background: #FBF6EE;
-  color: #2A1F0E;
+  background: #FFFFFF;
+  color: #1A1A2E;
 }

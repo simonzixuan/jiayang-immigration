@@ -5,23 +5,24 @@ import Header from "./components/Header"
 
 const t = {
   zh: {
-    heroTag: "持牌 RCIC 移民顾问",
-    heroTitle: "与您同行",
-    heroSub: "开启新生活",
-    heroDesc: "无论您面对何种移民困境，佳阳移民以专业、耐心与温暖，陪伴您走过每一步。",
-    heroBtn: "免费咨询",
-    servicesTag: "我们的服务",
+    heroTag: "加拿大持牌移民顾问 · ICCRC Licensed",
+    heroTitle: "专业移民服务",
+    heroSub: "用心做好细节，以诚赢得信赖",
+    heroDesc: "佳阳移民深耕加拿大移民领域近7年，为华人及各族裔客户提供全面专业的移民服务。",
+    heroBtn: "立即免费咨询",
+    heroBtn2: "查看服务",
+    servicesTag: "服务范围",
     servicesTitle: "全方位移民服务",
     services: [
-      { icon: "🕊️", title: "难民与人道主义", desc: "为需要庇护和人道主义保护的申请人提供专业支持，守护您的安全与尊严。" },
-      { icon: "👨‍👩‍👧", title: "家庭团聚", desc: "协助配偶、子女及父母移民申请，让家人早日团聚，共享天伦之乐。" },
-      { icon: "🎓", title: "移民与留学", desc: "学习签证、工作许可、毕业生工签，为您的学业与职业发展保驾护航。" },
-      { icon: "✈️", title: "旅游与探亲", desc: "探亲签证、旅游签证申请，让您轻松往来，与家人保持联系。" },
-      { icon: "📋", title: "延期与续签", desc: "身份延期、续签及各类疑难案件处理，维护您在加拿大的合法身份。" },
-      { icon: "🍁", title: "入籍与枫叶卡", desc: "加拿大入籍申请及永久居民卡更新，助您深根加拿大，开创新篇章。" },
+      { num: "01", title: "难民与人道主义", desc: "为需要庇护和人道主义保护的申请人提供专业支持，守护您的安全与尊严。" },
+      { num: "02", title: "家庭团聚", desc: "协助配偶、子女及父母移民申请，让家人早日团聚，共享天伦之乐。" },
+      { num: "03", title: "移民与留学", desc: "学习签证、工作许可、毕业生工签，为您的学业与职业发展保驾护航。" },
+      { num: "04", title: "旅游与探亲", desc: "探亲签证、旅游签证申请，让您轻松往来，与家人保持联系。" },
+      { num: "05", title: "延期与续签", desc: "身份延期、续签及各类疑难案件处理，维护您在加拿大的合法身份。" },
+      { num: "06", title: "入籍与枫叶卡", desc: "加拿大入籍申请及永久居民卡更新，助您深根加拿大，开创新篇章。" },
     ],
-    aboutTag: "关于佳阳",
-    aboutTitle: "专业与温暖并重",
+    aboutTag: "关于我们",
+    aboutTitle: "佳阳移民",
     aboutDesc1: "佳阳移民是加拿大持牌移民顾问公司，深耕移民领域近7年，致力于为华人及各族裔客户提供专业、真诚的移民服务。",
     aboutDesc2: "我们的宗旨是「用心做好细节，以诚赢得信赖」。无论案件简单还是复杂，我们都全力以赴，为每位客户争取最好的结果。",
     rcic: "加拿大持牌移民顾问",
@@ -29,15 +30,15 @@ const t = {
     stat1: "年从业经验",
     stat2: "服务客户",
     stat3: "Google 好评",
-    testimonialsTag: "客户见证",
-    testimonialsTitle: "他们的新生活，是我们最大的骄傲",
+    testimonialsTag: "客户评价",
+    testimonialsTitle: "真实案例，真实评价",
     testimonials: [
       { text: "我在佳阳移民咨询时服务耐心，解答专业。之后在这里办理了美签，速度非常快，都没有面试就拿到了新美签。", name: "程洋洋", type: "美签申请" },
       { text: "佳阳移民咨询时服务耐心，解答专业。之后在这里办理了团聚，非常快拿到工签和档案号。佳阳移民的老师非常专业迅速，真诚推荐！", name: "Chi Jiangbin", type: "家庭团聚" },
     ],
     contactTag: "联系我们",
-    contactTitle: "立即咨询，迈出第一步",
-    contactDesc: "无论您处于移民旅程的哪个阶段，我们都在这里为您解答。",
+    contactTitle: "立即咨询",
+    contactDesc: "无论您处于移民旅程的哪个阶段，我们都在这里为您解答疑惑，提供专业建议。",
     phone: "电话",
     email: "邮箱",
     wechat: "微信",
@@ -48,42 +49,43 @@ const t = {
     formMsg: "请简要描述您的情况",
     formBtn: "提交咨询",
     footerRights: "版权所有",
-    footerLicense: "持牌 RCIC 移民顾问",
+    footerLicense: "加拿大持牌移民顾问",
   },
   en: {
-    heroTag: "Licensed RCIC Immigration Consultant",
-    heroTitle: "We Walk",
-    heroSub: "With You",
-    heroDesc: "Whatever immigration challenges you face, JiaYang Immigration guides you through every step with expertise, patience, and care.",
+    heroTag: "Licensed Canadian Immigration Consultant · ICCRC Licensed",
+    heroTitle: "Professional Immigration Services",
+    heroSub: "Attention to Detail. Trust Through Integrity.",
+    heroDesc: "JiaYang Immigration has served Chinese and multicultural clients across Canada for nearly 7 years with expertise and care.",
     heroBtn: "Free Consultation",
-    servicesTag: "Our Services",
+    heroBtn2: "Our Services",
+    servicesTag: "Services",
     servicesTitle: "Comprehensive Immigration Services",
     services: [
-      { icon: "🕊️", title: "Refugee & Humanitarian", desc: "Professional support for asylum seekers and humanitarian protection applicants, safeguarding your safety and dignity." },
-      { icon: "👨‍👩‍👧", title: "Family Reunification", desc: "Sponsorship applications for spouses, children, and parents to bring your loved ones to Canada." },
-      { icon: "🎓", title: "Immigration & Study", desc: "Study permits, work permits, and PGWP applications to support your academic and career journey." },
-      { icon: "✈️", title: "Tourism & Family Visits", desc: "Visitor and tourist visa applications to maintain connections with your family." },
-      { icon: "📋", title: "Extensions & Renewals", desc: "Status extensions, renewals, and complex case handling to maintain your legal status in Canada." },
-      { icon: "🍁", title: "Citizenship & PR Card", desc: "Citizenship applications and PR card renewals to help you build deeper roots in Canada." },
+      { num: "01", title: "Refugee & Humanitarian", desc: "Professional support for asylum seekers and humanitarian protection applicants, safeguarding your safety and dignity." },
+      { num: "02", title: "Family Reunification", desc: "Sponsorship applications for spouses, children, and parents to bring your loved ones to Canada." },
+      { num: "03", title: "Immigration & Study", desc: "Study permits, work permits, and PGWP applications to support your academic and career journey." },
+      { num: "04", title: "Tourism & Family Visits", desc: "Visitor and tourist visa applications to maintain connections with your family." },
+      { num: "05", title: "Extensions & Renewals", desc: "Status extensions, renewals, and complex case handling to maintain your legal status in Canada." },
+      { num: "06", title: "Citizenship & PR Card", desc: "Citizenship applications and PR card renewals to help you build deeper roots in Canada." },
     ],
-    aboutTag: "About JiaYang",
-    aboutTitle: "Professional & Compassionate",
-    aboutDesc1: "JiaYang Immigration is a licensed Canadian immigration consulting company with nearly 7 years of experience, dedicated to providing professional and trustworthy immigration services to Chinese and multicultural clients.",
+    aboutTag: "About Us",
+    aboutTitle: "JiaYang Immigration",
+    aboutDesc1: "JiaYang Immigration is a licensed Canadian immigration consulting company with nearly 7 years of experience, dedicated to serving Chinese and multicultural clients with professionalism and integrity.",
     aboutDesc2: "Our motto: \"Attention to detail, trust through integrity.\" Whether your case is simple or complex, we give our full effort to achieve the best possible outcome for every client.",
     rcic: "Licensed Canadian Immigration Consultant",
     rcicSub: "ICCRC Licensed",
     stat1: "Years Experience",
     stat2: "Clients Served",
     stat3: "Google Rating",
-    testimonialsTag: "Client Stories",
-    testimonialsTitle: "Their New Lives Are Our Greatest Pride",
+    testimonialsTag: "Testimonials",
+    testimonialsTitle: "Real Cases. Real Results.",
     testimonials: [
       { text: "The service at JiaYang Immigration was patient and professional. I applied for a US visa here and got it approved very quickly — no interview required!", name: "Cheng Yangyang", type: "US Visa" },
       { text: "The consultation was patient and professional. I completed my family reunification here and quickly received my work permit and file number. Highly recommended!", name: "Chi Jiangbin", type: "Family Reunification" },
     ],
-    contactTag: "Contact Us",
-    contactTitle: "Start Your Journey Today",
-    contactDesc: "Wherever you are in your immigration journey, we are here to help.",
+    contactTag: "Contact",
+    contactTitle: "Get In Touch",
+    contactDesc: "Wherever you are in your immigration journey, we are here to answer your questions and provide professional advice.",
     phone: "Phone",
     email: "Email",
     wechat: "WeChat",
@@ -94,7 +96,7 @@ const t = {
     formMsg: "Briefly describe your situation",
     formBtn: "Submit Inquiry",
     footerRights: "All Rights Reserved",
-    footerLicense: "Licensed RCIC Immigration Consultant",
+    footerLicense: "Licensed Canadian Immigration Consultant",
   },
 }
 
@@ -107,49 +109,54 @@ function Home() {
       <Header />
 
       {/* Hero */}
-      <section className="min-h-screen flex items-center bg-[#FEFCF8] pt-16">
-        <div className="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-6">{tx.heroTag}</p>
-            <h1 className="font-display text-6xl md:text-7xl font-medium text-[#2A1F0E] leading-tight mb-4">
-              {tx.heroTitle}
-            </h1>
-            <h2 className="font-display text-4xl md:text-5xl font-normal italic text-[#C4873A] mb-8">
-              {tx.heroSub}
-            </h2>
-            <p className="text-[#6B5535] text-base leading-relaxed mb-10 max-w-md">{tx.heroDesc}</p>
-            <a
-              href="#contact"
-              className="inline-block bg-[#C4873A] text-white px-10 py-4 text-[11px] tracking-[0.3em] uppercase hover:bg-[#8B6012] transition-colors"
-            >
+      <section className="min-h-screen flex items-center bg-[#1B2B4E] pt-16">
+        <div className="max-w-6xl mx-auto px-6 py-24 w-full">
+          <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-8">{tx.heroTag}</p>
+          <h1 className="font-display text-5xl md:text-7xl font-medium text-white leading-tight mb-6 max-w-3xl">
+            {tx.heroTitle}
+          </h1>
+          <p className="text-[#C4873A] text-lg md:text-xl font-display italic mb-6">{tx.heroSub}</p>
+          <p className="text-[#A8B8D0] text-base leading-relaxed mb-12 max-w-xl">{tx.heroDesc}</p>
+          <div className="flex flex-wrap gap-4">
+            <a href="#contact" className="inline-block bg-[#C4873A] text-white px-10 py-4 text-[11px] tracking-[0.3em] uppercase hover:bg-[#A06A20] transition-colors">
               {tx.heroBtn}
             </a>
-          </div>
-          <div className="hidden md:flex items-center justify-center">
-            <div className="relative w-80 h-80">
-              <div className="absolute inset-0 bg-[#E8D8BC] rounded-full opacity-40" />
-              <div className="absolute inset-8 bg-[#C4873A] rounded-full opacity-20" />
-              <div className="absolute inset-16 flex items-center justify-center">
-                <span className="text-8xl">🍁</span>
-              </div>
-            </div>
+            <a href="#services" className="inline-block border border-[#A8B8D0] text-[#A8B8D0] px-10 py-4 text-[11px] tracking-[0.3em] uppercase hover:border-white hover:text-white transition-colors">
+              {tx.heroBtn2}
+            </a>
           </div>
         </div>
       </section>
 
+      {/* Stats Bar */}
+      <section className="bg-[#C4873A]">
+        <div className="max-w-6xl mx-auto px-6 py-8 grid grid-cols-3 divide-x divide-[#A06A20]">
+          {[
+            { num: "7+", label: tx.stat1 },
+            { num: "400+", label: tx.stat2 },
+            { num: "5.0 ★", label: tx.stat3 },
+          ].map((s) => (
+            <div key={s.label} className="text-center px-4">
+              <p className="font-display text-3xl font-medium text-white mb-1">{s.num}</p>
+              <p className="text-[10px] tracking-[0.2em] uppercase text-white/70">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Services */}
-      <section className="py-24 px-6 bg-[#F5EAD8]" id="services">
+      <section className="py-24 px-6 bg-white" id="services">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
             <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-4">{tx.servicesTag}</p>
-            <h2 className="font-display text-4xl md:text-5xl font-medium text-[#2A1F0E]">{tx.servicesTitle}</h2>
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-[#1B2B4E]">{tx.servicesTitle}</h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#E5E9F0]">
             {tx.services.map((s) => (
-              <div key={s.title} className="bg-[#FEFCF8] p-8 hover:shadow-md transition-shadow">
-                <span className="text-3xl mb-4 block">{s.icon}</span>
-                <h3 className="text-lg font-medium text-[#2A1F0E] mb-3">{s.title}</h3>
-                <p className="text-[#6B5535] text-sm leading-relaxed">{s.desc}</p>
+              <div key={s.title} className="bg-white p-8 hover:bg-[#F5F7FB] transition-colors">
+                <p className="font-display text-3xl font-light text-[#C4873A] mb-4">{s.num}</p>
+                <h3 className="text-base font-medium text-[#1B2B4E] mb-3">{s.title}</h3>
+                <p className="text-[#5A6A82] text-sm leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -157,50 +164,54 @@ function Home() {
       </section>
 
       {/* About */}
-      <section className="py-24 px-6 bg-[#FEFCF8]" id="about">
+      <section className="py-24 px-6 bg-[#F5F7FB]" id="about">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div>
             <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-4">{tx.aboutTag}</p>
-            <h2 className="font-display text-4xl md:text-5xl font-medium text-[#2A1F0E] mb-8">{tx.aboutTitle}</h2>
-            <p className="text-[#6B5535] leading-relaxed mb-4">{tx.aboutDesc1}</p>
-            <p className="text-[#6B5535] leading-relaxed mb-10">{tx.aboutDesc2}</p>
-            <div className="inline-flex items-center gap-3 border border-[#C4873A] px-6 py-3">
-              <span className="text-2xl">🍁</span>
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-[#1B2B4E] mb-8">{tx.aboutTitle}</h2>
+            <p className="text-[#5A6A82] leading-relaxed mb-4">{tx.aboutDesc1}</p>
+            <p className="text-[#5A6A82] leading-relaxed mb-10">{tx.aboutDesc2}</p>
+            <div className="inline-flex items-center gap-4 bg-white border border-[#E5E9F0] px-6 py-4">
+              <div className="w-8 h-8 bg-[#1B2B4E] flex items-center justify-center">
+                <span className="text-white text-sm font-bold">🍁</span>
+              </div>
               <div>
-                <p className="text-sm font-medium text-[#2A1F0E]">{tx.rcic}</p>
+                <p className="text-sm font-medium text-[#1B2B4E]">{tx.rcic}</p>
                 <p className="text-[10px] tracking-[0.2em] uppercase text-[#C4873A]">{tx.rcicSub}</p>
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-6">
-            {[
-              { num: "7+", label: tx.stat1 },
-              { num: "400+", label: tx.stat2 },
-              { num: "5.0", label: tx.stat3 },
-            ].map((s) => (
-              <div key={s.label} className="text-center py-8 bg-[#F5EAD8]">
-                <p className="font-display text-4xl font-medium text-[#C4873A] mb-2">{s.num}</p>
-                <p className="text-[11px] tracking-[0.1em] text-[#6B5535]">{s.label}</p>
-              </div>
-            ))}
+          <div className="bg-[#1B2B4E] p-12 text-white">
+            <p className="font-display text-2xl italic text-[#C4873A] mb-6">
+              {lang === "zh" ? "「用心做好细节，以诚赢得信赖」" : '"Attention to detail, trust through integrity."'}
+            </p>
+            <p className="text-[#A8B8D0] text-sm leading-relaxed">
+              {lang === "zh"
+                ? "自2016年成立以来，佳阳移民始终坚持以客户利益为先，用专业赢得每一位客户的信任。"
+                : "Since 2016, JiaYang Immigration has put clients first, earning trust through professionalism and dedication."}
+            </p>
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 px-6 bg-[#2A1F0E]" id="testimonials">
+      <section className="py-24 px-6 bg-white" id="testimonials">
         <div className="max-w-6xl mx-auto">
-          <div className="mb-16 text-center">
+          <div className="mb-16">
             <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-4">{tx.testimonialsTag}</p>
-            <h2 className="font-display text-4xl md:text-5xl font-medium text-[#FBF6EE]">{tx.testimonialsTitle}</h2>
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-[#1B2B4E]">{tx.testimonialsTitle}</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl">
             {tx.testimonials.map((r) => (
-              <div key={r.name} className="bg-[#3A2D1A] p-8">
-                <div className="w-8 h-px bg-[#C4873A] mb-6" />
-                <p className="font-display text-base italic text-[#E8D8BC] leading-relaxed mb-6">"{r.text}"</p>
-                <p className="text-[11px] tracking-[0.2em] uppercase text-[#C4873A]">— {r.name}</p>
-                <p className="text-[10px] text-[#6B5535] mt-1">{r.type}</p>
+              <div key={r.name} className="border border-[#E5E9F0] p-8">
+                <div className="flex gap-1 mb-6">
+                  {[1,2,3,4,5].map(i => <span key={i} className="text-[#C4873A] text-sm">★</span>)}
+                </div>
+                <p className="text-[#2A3A52] leading-relaxed mb-6">"{r.text}"</p>
+                <div className="flex items-center justify-between">
+                  <p className="text-sm font-medium text-[#1B2B4E]">{r.name}</p>
+                  <span className="text-[10px] tracking-[0.2em] uppercase text-[#C4873A] border border-[#C4873A] px-2 py-1">{r.type}</span>
+                </div>
               </div>
             ))}
           </div>
@@ -208,12 +219,12 @@ function Home() {
       </section>
 
       {/* Contact */}
-      <section className="py-24 px-6 bg-[#F5EAD8]" id="contact">
+      <section className="py-24 px-6 bg-[#1B2B4E]" id="contact">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
             <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-4">{tx.contactTag}</p>
-            <h2 className="font-display text-4xl md:text-5xl font-medium text-[#2A1F0E] mb-4">{tx.contactTitle}</h2>
-            <p className="text-[#6B5535]">{tx.contactDesc}</p>
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-white mb-4">{tx.contactTitle}</h2>
+            <p className="text-[#A8B8D0]">{tx.contactDesc}</p>
           </div>
           <div className="grid md:grid-cols-2 gap-16">
             <div className="space-y-8">
@@ -223,21 +234,21 @@ function Home() {
                 { label: tx.wechat, value: "Kris0214" },
                 { label: tx.address, value: "5599 Cooney Rd, Unit 2, Richmond, BC V6X 3M6" },
               ].map((item) => (
-                <div key={item.label} className="flex gap-4">
-                  <span className="text-[10px] tracking-[0.3em] uppercase text-[#C4873A] w-16 pt-1 shrink-0">{item.label}</span>
-                  <span className="text-[#2A1F0E]">{item.value}</span>
+                <div key={item.label} className="flex gap-6 border-b border-[#2A3E60] pb-6">
+                  <span className="text-[10px] tracking-[0.3em] uppercase text-[#C4873A] w-14 pt-1 shrink-0">{item.label}</span>
+                  <span className="text-white text-sm">{item.value}</span>
                 </div>
               ))}
             </div>
             <form className="space-y-4">
-              <input type="text" placeholder={tx.formName} className="w-full bg-[#FEFCF8] border border-[#E8D8BC] px-4 py-3 text-sm text-[#2A1F0E] placeholder-[#B8A882] focus:outline-none focus:border-[#C4873A]" />
-              <input type="tel" placeholder={tx.formPhone} className="w-full bg-[#FEFCF8] border border-[#E8D8BC] px-4 py-3 text-sm text-[#2A1F0E] placeholder-[#B8A882] focus:outline-none focus:border-[#C4873A]" />
-              <select className="w-full bg-[#FEFCF8] border border-[#E8D8BC] px-4 py-3 text-sm text-[#2A1F0E] focus:outline-none focus:border-[#C4873A]">
+              <input type="text" placeholder={tx.formName} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A]" />
+              <input type="tel" placeholder={tx.formPhone} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A]" />
+              <select className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C4873A]">
                 <option value="">{tx.formService}</option>
                 {tx.services.map(s => <option key={s.title} value={s.title}>{s.title}</option>)}
               </select>
-              <textarea rows={4} placeholder={tx.formMsg} className="w-full bg-[#FEFCF8] border border-[#E8D8BC] px-4 py-3 text-sm text-[#2A1F0E] placeholder-[#B8A882] focus:outline-none focus:border-[#C4873A] resize-none" />
-              <button type="submit" className="w-full bg-[#C4873A] text-white py-4 text-[11px] tracking-[0.3em] uppercase hover:bg-[#8B6012] transition-colors">
+              <textarea rows={4} placeholder={tx.formMsg} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A] resize-none" />
+              <button type="submit" className="w-full bg-[#C4873A] text-white py-4 text-[11px] tracking-[0.3em] uppercase hover:bg-[#A06A20] transition-colors">
                 {tx.formBtn}
               </button>
             </form>
@@ -246,8 +257,8 @@ function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 bg-[#2A1F0E] text-center">
-        <p className="text-[#6B5535] text-[11px] tracking-[0.2em]">
+      <footer className="py-6 px-6 bg-[#111D33] text-center">
+        <p className="text-[#3A5070] text-[11px] tracking-[0.2em]">
           © {new Date().getFullYear()} 佳阳移民 JiaYang Immigration · {tx.footerRights} · {tx.footerLicense}
         </p>
       </footer>
