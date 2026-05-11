@@ -58,6 +58,8 @@ export default function RootLayout({
     <html lang="zh" className={`${notoSansSC.variable} ${lora.variable} h-full`}>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-04DZ8SYV48" />
+        <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-04DZ8SYV48');` }} />
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
