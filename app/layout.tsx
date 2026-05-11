@@ -18,7 +18,7 @@ const lora = Lora({
 export const metadata: Metadata = {
   title: "佳阳移民 | JiaYang Immigration — 加拿大专业移民顾问",
   description: "佳阳移民提供难民、家庭团聚、留学、旅游探亲、延期续签、入籍及枫叶卡更新等全面移民服务。持牌RCIC移民顾问，专业可信赖。",
-  metadataBase: new URL("https://jiayangimmigration.ca"),
+  metadataBase: new URL("https://jiayangimmigration.com"),
 }
 
 const schema = {
@@ -26,7 +26,7 @@ const schema = {
   "@type": "LegalService",
   "name": "佳阳移民 JiaYang Immigration",
   "description": "加拿大持牌移民顾问公司，提供难民、家庭团聚、留学、旅游探亲、延期续签、入籍及枫叶卡更新等全面移民服务。",
-  "url": "https://jiayangimmigration.ca",
+  "url": "https://jiayangimmigration.com",
   "telephone": "+16042386686",
   "email": "jy.simon.ca@gmail.com",
   "address": {

@@ -5,6 +5,6 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       { userAgent: "*", allow: "/", disallow: "/studio/" },
     ],
-    sitemap: "https://jiayangimmigration.ca/sitemap.xml",
+    sitemap: "https://jiayangimmigration.com/sitemap.xml",
   }
 }
