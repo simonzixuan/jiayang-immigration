@@ -35,6 +35,7 @@ const t = {
     testimonials: [
       { text: "我在佳阳移民咨询时服务耐心，解答专业。之后在这里办理了美签，速度非常快，都没有面试就拿到了新美签。", name: "程洋洋", type: "美签申请" },
       { text: "佳阳移民咨询时服务耐心，解答专业。之后在这里办理了团聚，非常快拿到工签和档案号。佳阳移民的老师非常专业迅速，真诚推荐！", name: "Chi Jiangbin", type: "家庭团聚" },
+      { text: "Werner顾问非常专业！帮我成功的把爸爸妈妈办了团聚移民过来。靠谱！", name: "Lichen Chai", type: "家庭团聚" },
     ],
     contactTag: "联系我们",
     contactTitle: "立即咨询",
@@ -82,6 +83,7 @@ const t = {
     testimonials: [
       { text: "The service at JiaYang Immigration was patient and professional. I applied for a US visa here and got it approved very quickly — no interview required!", name: "Cheng Yangyang", type: "US Visa" },
       { text: "The consultation was patient and professional. I completed my family reunification here and quickly received my work permit and file number. Highly recommended!", name: "Chi Jiangbin", type: "Family Reunification" },
+      { text: "Consultant Werner is very professional! He successfully helped me bring my parents here through family reunification. Reliable!", name: "Lichen Chai", type: "Family Reunification" },
     ],
     contactTag: "Contact",
     contactTitle: "Get In Touch",
@@ -201,7 +203,7 @@ function Home() {
             <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-4">{tx.testimonialsTag}</p>
             <h2 className="font-display text-4xl md:text-5xl font-medium text-[#1B2B4E]">{tx.testimonialsTitle}</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl">
+          <div className="grid md:grid-cols-3 gap-8">
             {tx.testimonials.map((r) => (
               <div key={r.name} className="border border-[#E5E9F0] p-8">
                 <div className="flex gap-1 mb-6">
