@@ -242,14 +242,14 @@ function Home() {
                 </div>
               ))}
             </div>
-            <form className="space-y-4">
-              <input type="text" placeholder={tx.formName} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A]" />
-              <input type="tel" placeholder={tx.formPhone} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A]" />
-              <select className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C4873A]">
+            <form action="https://formspree.io/f/xpqbkzdy" method="POST" className="space-y-4">
+              <input type="text" name="name" placeholder={tx.formName} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A]" />
+              <input type="tel" name="phone" placeholder={tx.formPhone} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A]" />
+              <select name="service" className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C4873A]">
                 <option value="">{tx.formService}</option>
                 {tx.services.map(s => <option key={s.title} value={s.title}>{s.title}</option>)}
               </select>
-              <textarea rows={4} placeholder={tx.formMsg} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A] resize-none" />
+              <textarea name="message" rows={4} placeholder={tx.formMsg} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A] resize-none" />
               <button type="submit" className="w-full bg-[#C4873A] text-white py-4 text-[11px] tracking-[0.3em] uppercase hover:bg-[#A06A20] transition-colors">
                 {tx.formBtn}
               </button>
