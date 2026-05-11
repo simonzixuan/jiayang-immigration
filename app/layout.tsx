@@ -55,6 +55,41 @@ const faqSchema = {
       "@type": "Question",
       "name": "Richmond BC 哪里有RCIC持牌移民顾问？",
       "acceptedAnswer": { "@type": "Answer", "text": "佳阳移民位于 Richmond BC 5599 Cooney Rd, Unit 2，是持牌RCIC移民顾问公司，提供家庭团聚、工签、学签、旅游签等全面移民服务。电话：+1 (604) 238-6686。" }
+    },
+    {
+      "@type": "Question",
+      "name": "列治文移民顾问费用大概是多少？",
+      "acceptedAnswer": { "@type": "Answer", "text": "费用因案件类型和复杂程度而异。家庭团聚顾问费通常在 $1,500-$3,000 CAD，Express Entry 约 $2,000-$4,000 CAD。首次咨询免费，评估后我们会提供明确报价，无隐藏费用。" }
+    },
+    {
+      "@type": "Question",
+      "name": "Express Entry 需要什么条件？",
+      "acceptedAnswer": { "@type": "Answer", "text": "Express Entry 主要看 CRS 综合评分，涵盖年龄、学历、语言（雅思/法语）、工作经验等因素。一般来说，CRS 分数越高被邀请概率越大。我们可以免费评估您的分数并建议提分方案。" }
+    },
+    {
+      "@type": "Question",
+      "name": "配偶移民需要多长时间，需要什么材料？",
+      "acceptedAnswer": { "@type": "Answer", "text": "境内配偶团聚（Inland）通常12个月左右，境外（Outland）约12-18个月。主要材料包括：结婚证、双方护照、关系证明（合照、通讯记录等）、财务证明。我们会提供完整材料清单并全程指导。" }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does immigration take in Richmond BC?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Processing times vary by program. Spousal sponsorship typically takes 12–18 months, Express Entry draws usually result in a decision within 6 months. JiaYang Immigration in Richmond BC provides free case assessments to give you a more accurate timeline." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where can I find a licensed RCIC immigration consultant in Richmond BC?",
+      "acceptedAnswer": { "@type": "Answer", "text": "JiaYang Immigration is a licensed RCIC immigration consulting firm located at 5599 Cooney Rd, Unit 2, Richmond BC V6X 3M6. We offer free initial consultations and serve clients across the Greater Vancouver area. Call us at +1 (604) 238-6686." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the cost of immigration consulting services in Richmond BC?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Fees vary by case type. Family sponsorship typically ranges from $1,500–$3,000 CAD, and Express Entry applications around $2,000–$4,000 CAD. JiaYang Immigration offers a free initial consultation with transparent pricing and no hidden fees." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I apply for Canadian immigration from China?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. JiaYang Immigration serves clients both inside and outside Canada. Most communication is done via WeChat, phone, or email, and documents can be submitted electronically. Contact us at WeChat: Kris0214." }
     }
   ]
 }
