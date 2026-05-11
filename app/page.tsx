@@ -260,21 +260,21 @@ function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 px-6 bg-white" id="testimonials">
+      <section className="py-24 px-6 bg-[#1B2B4E]" id="testimonials">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
             <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-4">{tx.testimonialsTag}</p>
-            <h2 className="font-display text-4xl md:text-5xl font-medium text-[#1B2B4E]">{tx.testimonialsTitle}</h2>
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-white">{tx.testimonialsTitle}</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 items-stretch">
             {tx.testimonials.map((r) => (
-              <div key={r.name} className="border border-[#E5E9F0] p-8">
+              <div key={r.name} className="border border-[#2A3E60] p-8 flex flex-col">
                 <div className="flex gap-1 mb-6">
                   {[1,2,3,4,5].map(i => <span key={i} className="text-[#C4873A] text-sm">★</span>)}
                 </div>
-                <p className="text-[#2A3A52] leading-relaxed mb-6">"{r.text}"</p>
+                <p className="text-[#A8B8D0] leading-relaxed mb-6 flex-1">"{r.text}"</p>
                 <div className="flex items-center justify-between">
-                  <p className="text-sm font-medium text-[#1B2B4E]">{r.name}</p>
+                  <p className="text-sm font-medium text-white">{r.name}</p>
                   <span className="text-[10px] tracking-[0.2em] uppercase text-[#C4873A] border border-[#C4873A] px-2 py-1">{r.type}</span>
                 </div>
               </div>
