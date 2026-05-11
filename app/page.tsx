@@ -111,8 +111,9 @@ function Home() {
       <Header />
 
       {/* Hero */}
-      <section className="min-h-screen flex items-center bg-[#1B2B4E] pt-16">
-        <div className="max-w-6xl mx-auto px-6 py-24 w-full">
+      <section className="min-h-screen flex items-center pt-16 relative overflow-hidden" style={{background: "linear-gradient(135deg, #1B2B4E 0%, #0F1A30 100%)"}}>
+        <div className="absolute inset-0 z-0" style={{backgroundImage: "url('https://images.unsplash.com/photo-1517935706615-2717063c2225?w=1600&q=80')", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.15}} />
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
           <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-8">{tx.heroTag}</p>
           <h1 className="font-display text-5xl md:text-7xl font-medium text-white leading-tight mb-6 max-w-3xl">
             {tx.heroTitle}
