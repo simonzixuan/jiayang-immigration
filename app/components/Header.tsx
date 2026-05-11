@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import { useLang } from "../context/lang"
 
 const nav = {
@@ -28,9 +27,10 @@ export default function Header() {
     <>
       <nav className="fixed top-0 left-0 right-0 z-[60] bg-[#1B2B4E]/95 backdrop-blur-sm border-b border-[#2A3E60]">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="#">
-            <Image src="/logo-dark.png" alt="佳阳移民 JiaYang Immigration" width={200} height={48} className="h-12 w-auto object-contain" />
-          </a>
+          <div className="flex flex-col leading-tight">
+            <span className="text-sm font-medium text-white tracking-wide">佳阳移民</span>
+            <span className="text-[10px] tracking-[0.2em] uppercase text-[#C4873A]">JiaYang Immigration</span>
+          </div>
           <div className="hidden md:flex items-center gap-8 text-[11px] tracking-[0.15em] uppercase text-[#A8B8D0]">
             {links.map(link => (
               <a key={link.label} href={link.href} className="hover:text-white transition-colors">
