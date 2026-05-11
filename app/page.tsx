@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import { LangProvider, useLang } from "./context/lang"
 import Header from "./components/Header"
 import NewsSection from "./components/NewsSection"
@@ -51,6 +52,9 @@ const t = {
     formEmail: "电子邮箱（选填）",
     formMsg: "请简要描述您的情况",
     formBtn: "提交咨询",
+    formSubmitting: "提交中...",
+    formSuccess: "收到！我们会尽快与您联系。",
+    formError: "提交失败，请直接发邮件至 jy.simon.ca@gmail.com",
     processTag: "服务流程",
     processTitle: "四步开启您的移民之旅",
     steps: [
@@ -108,6 +112,9 @@ const t = {
     formEmail: "Email Address (optional)",
     formMsg: "Briefly describe your situation",
     formBtn: "Submit Inquiry",
+    formSubmitting: "Submitting...",
+    formSuccess: "Received! We'll be in touch shortly.",
+    formError: "Submission failed. Please email us at jy.simon.ca@gmail.com",
     processTag: "How It Works",
     processTitle: "Four Steps to Your New Life",
     steps: [
@@ -124,6 +131,19 @@ const t = {
 function Home() {
   const { lang } = useLang()
   const tx = t[lang]
+  const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle")
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setFormState("submitting")
+    const data = new FormData(e.currentTarget)
+    const res = await fetch("https://formspree.io/f/xpqbkzdy", {
+      method: "POST",
+      body: data,
+      headers: { Accept: "application/json" },
+    })
+    setFormState(res.ok ? "success" : "error")
+  }
 
   return (
     <main className="flex-1">
@@ -274,16 +294,18 @@ function Home() {
           </div>
           <div className="grid md:grid-cols-2 gap-16">
             <div className="space-y-8">
-              {[
-                { label: tx.phone, value: "+1 (604) 238-6686" },
-                { label: tx.email, value: "jy.simon.ca@gmail.com" },
-                { label: tx.address, value: "5599 Cooney Rd, Unit 2, Richmond, BC V6X 3M6" },
-              ].map((item) => (
-                <div key={item.label} className="flex gap-6 border-b border-[#2A3E60] pb-6">
-                  <span className="text-[10px] tracking-[0.3em] uppercase text-[#C4873A] w-14 pt-1 shrink-0">{item.label}</span>
-                  <span className="text-white text-sm">{item.value}</span>
-                </div>
-              ))}
+              <div className="flex gap-6 border-b border-[#2A3E60] pb-6">
+                <span className="text-[10px] tracking-[0.3em] uppercase text-[#C4873A] w-14 pt-1 shrink-0">{tx.phone}</span>
+                <a href="tel:+16042386686" className="text-white text-sm hover:text-[#C4873A] transition-colors">+1 (604) 238-6686</a>
+              </div>
+              <div className="flex gap-6 border-b border-[#2A3E60] pb-6">
+                <span className="text-[10px] tracking-[0.3em] uppercase text-[#C4873A] w-14 pt-1 shrink-0">{tx.email}</span>
+                <a href="mailto:jy.simon.ca@gmail.com" className="text-white text-sm hover:text-[#C4873A] transition-colors">jy.simon.ca@gmail.com</a>
+              </div>
+              <div className="flex gap-6 border-b border-[#2A3E60] pb-6">
+                <span className="text-[10px] tracking-[0.3em] uppercase text-[#C4873A] w-14 pt-1 shrink-0">{tx.address}</span>
+                <span className="text-white text-sm">5599 Cooney Rd, Unit 2, Richmond, BC V6X 3M6</span>
+              </div>
               <div className="flex gap-6 pt-2">
                 <span className="text-[10px] tracking-[0.3em] uppercase text-[#C4873A] w-14 pt-1 shrink-0">{tx.wechat}</span>
                 <div>
@@ -292,19 +314,31 @@ function Home() {
                 </div>
               </div>
             </div>
-            <form action="https://formspree.io/f/xpqbkzdy" method="POST" className="space-y-4">
-              <input type="text" name="name" placeholder={tx.formName} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A]" />
-              <input type="tel" name="phone" placeholder={tx.formPhone} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A]" />
-              <input type="email" name="email" placeholder={tx.formEmail} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A]" />
-              <select name="service" className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C4873A]">
-                <option value="">{tx.formService}</option>
-                {tx.services.map(s => <option key={s.title} value={s.title}>{s.title}</option>)}
-              </select>
-              <textarea name="message" rows={4} placeholder={tx.formMsg} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A] resize-none" />
-              <button type="submit" className="w-full bg-[#C4873A] text-white py-4 text-[11px] tracking-[0.3em] uppercase hover:bg-[#A06A20] transition-colors">
-                {tx.formBtn}
-              </button>
-            </form>
+            {formState === "success" ? (
+              <div className="flex items-center justify-center bg-[#2A3E60] border border-[#C4873A] p-12 text-center">
+                <div>
+                  <p className="text-[#C4873A] text-3xl mb-4">✓</p>
+                  <p className="text-white">{tx.formSuccess}</p>
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <input type="text" name="name" placeholder={tx.formName} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A]" />
+                <input type="tel" name="phone" placeholder={tx.formPhone} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A]" />
+                <input type="email" name="email" placeholder={tx.formEmail} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A]" />
+                <select name="service" className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C4873A]">
+                  <option value="">{tx.formService}</option>
+                  {tx.services.map(s => <option key={s.title} value={s.title}>{s.title}</option>)}
+                </select>
+                <textarea name="message" rows={4} placeholder={tx.formMsg} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A] resize-none" />
+                {formState === "error" && (
+                  <p className="text-red-400 text-sm">{tx.formError}</p>
+                )}
+                <button type="submit" disabled={formState === "submitting"} className="w-full bg-[#C4873A] text-white py-4 text-[11px] tracking-[0.3em] uppercase hover:bg-[#A06A20] transition-colors disabled:opacity-60">
+                  {formState === "submitting" ? tx.formSubmitting : tx.formBtn}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </section>
