@@ -219,7 +219,7 @@ function Home() {
             <div className="space-y-8">
               {[
                 { label: tx.phone, value: "+1 (604) 238-6686" },
-                { label: tx.email, value: "info@jiayangimmigration.ca" },
+                { label: tx.email, value: "jy.simon.ca@gmail.com" },
                 { label: tx.wechat, value: "Kris0214" },
                 { label: tx.address, value: "5599 Cooney Rd, Unit 2, Richmond, BC V6X 3M6" },
               ].map((item) => (
