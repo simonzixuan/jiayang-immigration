@@ -4,6 +4,7 @@ import { useState } from "react"
 import { LangProvider, useLang } from "./context/lang"
 import Header from "./components/Header"
 import NewsSection from "./components/NewsSection"
+import FloatingContact from "./components/FloatingContact"
 
 const t = {
   zh: {
@@ -342,6 +343,8 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <FloatingContact />
 
       {/* Footer */}
       <footer className="py-6 px-6 bg-[#111D33] text-center">
