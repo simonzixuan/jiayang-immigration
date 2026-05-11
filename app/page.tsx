@@ -22,19 +22,18 @@ const t = {
     ],
     aboutTag: "关于佳阳",
     aboutTitle: "专业与温暖并重",
-    aboutDesc1: "佳阳移民由持牌注册移民顾问（RCIC）创立，深耕加拿大移民领域多年，服务华人及各族裔移民客户。",
-    aboutDesc2: "我们深知移民路上的不易，每一个案件都全力以赴，以专业知识和真诚态度，为每位客户争取最好的结果。",
-    rcic: "持牌注册移民顾问",
-    rcicSub: "RCIC Licensed",
-    stat1: "多年经验",
+    aboutDesc1: "佳阳移民是加拿大持牌移民顾问公司，深耕移民领域近7年，致力于为华人及各族裔客户提供专业、真诚的移民服务。",
+    aboutDesc2: "我们的宗旨是「用心做好细节，以诚赢得信赖」。无论案件简单还是复杂，我们都全力以赴，为每位客户争取最好的结果。",
+    rcic: "加拿大持牌移民顾问",
+    rcicSub: "ICCRC Licensed",
+    stat1: "年从业经验",
     stat2: "服务客户",
-    stat3: "成功率",
+    stat3: "Google 好评",
     testimonialsTag: "客户见证",
     testimonialsTitle: "他们的新生活，是我们最大的骄傲",
     testimonials: [
-      { text: "佳阳移民帮助我顺利完成家庭团聚申请，整个过程专业细致，让我非常安心。感谢他们让我的家人终于团聚在一起！", name: "王女士", type: "家庭团聚" },
-      { text: "我的案件非常复杂，很多机构都拒绝受理，佳阳移民耐心分析，最终帮我成功获批。真的非常感激！", name: "陈先生", type: "疑难案件" },
-      { text: "从留学签证到毕业工签，全程都是佳阳移民在帮我处理，省心省力，强烈推荐！", name: "李同学", type: "留学移民" },
+      { text: "我在佳阳移民咨询时服务耐心，解答专业。之后在这里办理了美签，速度非常快，都没有面试就拿到了新美签。", name: "程洋洋", type: "美签申请" },
+      { text: "佳阳移民咨询时服务耐心，解答专业。之后在这里办理了团聚，非常快拿到工签和档案号。佳阳移民的老师非常专业迅速，真诚推荐！", name: "Chi Jiangbin", type: "家庭团聚" },
     ],
     contactTag: "联系我们",
     contactTitle: "立即咨询，迈出第一步",
@@ -69,19 +68,18 @@ const t = {
     ],
     aboutTag: "About JiaYang",
     aboutTitle: "Professional & Compassionate",
-    aboutDesc1: "JiaYang Immigration was founded by a licensed Regulated Canadian Immigration Consultant (RCIC), with years of experience serving Chinese and multicultural clients across Canada.",
-    aboutDesc2: "We understand how challenging the immigration journey can be. We approach every case with full commitment, professional knowledge, and genuine care to achieve the best possible outcome for each client.",
-    rcic: "Licensed Immigration Consultant",
-    rcicSub: "RCIC Licensed",
+    aboutDesc1: "JiaYang Immigration is a licensed Canadian immigration consulting company with nearly 7 years of experience, dedicated to providing professional and trustworthy immigration services to Chinese and multicultural clients.",
+    aboutDesc2: "Our motto: \"Attention to detail, trust through integrity.\" Whether your case is simple or complex, we give our full effort to achieve the best possible outcome for every client.",
+    rcic: "Licensed Canadian Immigration Consultant",
+    rcicSub: "ICCRC Licensed",
     stat1: "Years Experience",
     stat2: "Clients Served",
-    stat3: "Success Rate",
+    stat3: "Google Rating",
     testimonialsTag: "Client Stories",
     testimonialsTitle: "Their New Lives Are Our Greatest Pride",
     testimonials: [
-      { text: "JiaYang Immigration helped me complete my family sponsorship application smoothly. The process was professional and thorough, giving me great peace of mind.", name: "Ms. Wang", type: "Family Reunification" },
-      { text: "My case was very complex and many agencies refused to take it. JiaYang patiently analyzed everything and ultimately helped me get approved. I'm truly grateful!", name: "Mr. Chen", type: "Complex Case" },
-      { text: "From my study permit to PGWP, JiaYang handled everything. Stress-free and highly recommended!", name: "Student Li", type: "Study Immigration" },
+      { text: "The service at JiaYang Immigration was patient and professional. I applied for a US visa here and got it approved very quickly — no interview required!", name: "Cheng Yangyang", type: "US Visa" },
+      { text: "The consultation was patient and professional. I completed my family reunification here and quickly received my work permit and file number. Highly recommended!", name: "Chi Jiangbin", type: "Family Reunification" },
     ],
     contactTag: "Contact Us",
     contactTitle: "Start Your Journey Today",
@@ -176,9 +174,9 @@ function Home() {
           </div>
           <div className="grid grid-cols-3 gap-6">
             {[
-              { num: "10+", label: tx.stat1 },
-              { num: "500+", label: tx.stat2 },
-              { num: "95%", label: tx.stat3 },
+              { num: "7+", label: tx.stat1 },
+              { num: "400+", label: tx.stat2 },
+              { num: "5.0", label: tx.stat3 },
             ].map((s) => (
               <div key={s.label} className="text-center py-8 bg-[#F5EAD8]">
                 <p className="font-display text-4xl font-medium text-[#C4873A] mb-2">{s.num}</p>
@@ -196,7 +194,7 @@ function Home() {
             <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-4">{tx.testimonialsTag}</p>
             <h2 className="font-display text-4xl md:text-5xl font-medium text-[#FBF6EE]">{tx.testimonialsTitle}</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {tx.testimonials.map((r) => (
               <div key={r.name} className="bg-[#3A2D1A] p-8">
                 <div className="w-8 h-px bg-[#C4873A] mb-6" />
@@ -220,10 +218,10 @@ function Home() {
           <div className="grid md:grid-cols-2 gap-16">
             <div className="space-y-8">
               {[
-                { label: tx.phone, value: "+1 (xxx) xxx-xxxx" },
+                { label: tx.phone, value: "+1 (604) 238-6686" },
                 { label: tx.email, value: "info@jiayangimmigration.ca" },
-                { label: tx.wechat, value: "JiaYangImmigration" },
-                { label: tx.address, value: "Canada" },
+                { label: tx.wechat, value: "Kris0214" },
+                { label: tx.address, value: "5599 Cooney Rd, Unit 2, Richmond, BC V6X 3M6" },
               ].map((item) => (
                 <div key={item.label} className="flex gap-4">
                   <span className="text-[10px] tracking-[0.3em] uppercase text-[#C4873A] w-16 pt-1 shrink-0">{item.label}</span>
