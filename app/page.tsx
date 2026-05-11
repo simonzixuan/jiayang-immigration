@@ -64,6 +64,15 @@ const t = {
       { num: "03", title: "材料准备", desc: "全程指导材料收集与整理，确保申请文件完整、准确，最大化获批概率。" },
       { num: "04", title: "递交跟进", desc: "代您递交申请，全程跟进审理进度，及时处理移民局的补件要求。" },
     ],
+    faqTag: "常见问题",
+    faqTitle: "您可能想知道",
+    faqs: [
+      { q: "申请移民需要多长时间？", a: "时间因项目而异。家庭团聚（配偶）通常需要12-18个月，父母担保约需24个月，Express Entry快速通道一般6个月内出结果。我们会在评估时给您更准确的预期时间线。" },
+      { q: "RCIC持牌顾问和移民律师有什么区别？", a: "RCIC持牌移民顾问由加拿大移民顾问监管机构（CICC）授权，专注于移民申请，费用通常低于律师。对于大多数移民案件，RCIC顾问完全能够胜任。复杂的司法上诉案件才需要律师介入。" },
+      { q: "第一次咨询收费吗？", a: "首次咨询免费。我们会评估您的情况、介绍适合您的移民路径，以及大致所需材料和费用，帮助您做出决定。" },
+      { q: "我在国内可以申请吗？", a: "可以。我们服务境内外客户，大部分沟通通过微信、电话或邮件进行，材料可以通过电子方式提交。" },
+      { q: "案件被拒后还能再申请吗？", a: "可以。被拒不代表终止，很多案件经过重新准备和调整策略后获批。我们也处理上诉和行政复议案件，欢迎咨询。" },
+    ],
     footerRights: "版权所有",
     footerLicense: "加拿大持牌移民顾问",
   },
@@ -124,6 +133,15 @@ const t = {
       { num: "03", title: "Document Preparation", desc: "We guide you through every document required, ensuring your application is complete and accurate to maximize approval chances." },
       { num: "04", title: "Submission & Follow-up", desc: "We submit your application and track its progress, responding promptly to any requests from immigration authorities." },
     ],
+    faqTag: "FAQ",
+    faqTitle: "Frequently Asked Questions",
+    faqs: [
+      { q: "How long does the immigration process take?", a: "Processing times vary by program. Spousal sponsorship typically takes 12–18 months, parent sponsorship around 24 months, and Express Entry draws usually result in a decision within 6 months. We'll give you a more accurate timeline after assessing your case." },
+      { q: "What's the difference between an RCIC and an immigration lawyer?", a: "An RCIC (Regulated Canadian Immigration Consultant) is licensed by CICC to handle immigration applications, typically at a lower cost than a lawyer. For most immigration cases, an RCIC is fully qualified. Lawyers are generally only needed for complex judicial appeals." },
+      { q: "Is the first consultation free?", a: "Yes, the initial consultation is free. We'll assess your situation, explain suitable immigration pathways, and outline the documents and costs involved to help you make an informed decision." },
+      { q: "Can I apply from outside Canada?", a: "Absolutely. We serve clients both inside and outside Canada. Most communication is done via WeChat, phone, or email, and documents can be submitted electronically." },
+      { q: "Can I reapply after a refusal?", a: "Yes. A refusal doesn't mean the end of your case. Many applications are approved after revisiting the strategy and strengthening the documentation. We also handle appeals and administrative reviews — feel free to reach out." },
+    ],
     footerRights: "All Rights Reserved",
     footerLicense: "Licensed Canadian Immigration Consultant",
   },
@@ -133,6 +151,7 @@ function Home() {
   const { lang } = useLang()
   const tx = t[lang]
   const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle")
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -255,6 +274,32 @@ function Home() {
                 ? "自2016年成立以来，佳阳移民始终坚持以客户利益为先，用专业赢得每一位客户的信任。"
                 : "Since 2016, JiaYang Immigration has put clients first, earning trust through professionalism and dedication."}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-24 px-6 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-16">
+            <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-4">{tx.faqTag}</p>
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-[#1B2B4E]">{tx.faqTitle}</h2>
+          </div>
+          <div className="divide-y divide-[#E5E9F0]">
+            {tx.faqs.map((item, i) => (
+              <div key={i}>
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="w-full flex items-center justify-between py-6 text-left gap-8"
+                >
+                  <span className="text-[#1B2B4E] font-medium">{item.q}</span>
+                  <span className="text-[#C4873A] text-xl shrink-0">{openFaq === i ? "−" : "+"}</span>
+                </button>
+                {openFaq === i && (
+                  <p className="text-[#5A6A82] text-sm leading-relaxed pb-6">{item.a}</p>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
