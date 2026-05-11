@@ -48,6 +48,7 @@ const t = {
     formName: "您的姓名",
     formPhone: "联系电话",
     formService: "咨询类型",
+    formEmail: "电子邮箱（选填）",
     formMsg: "请简要描述您的情况",
     formBtn: "提交咨询",
     processTag: "服务流程",
@@ -104,6 +105,7 @@ const t = {
     formName: "Your Name",
     formPhone: "Phone Number",
     formService: "Service Type",
+    formEmail: "Email Address (optional)",
     formMsg: "Briefly describe your situation",
     formBtn: "Submit Inquiry",
     processTag: "How It Works",
@@ -293,6 +295,7 @@ function Home() {
             <form action="https://formspree.io/f/xpqbkzdy" method="POST" className="space-y-4">
               <input type="text" name="name" placeholder={tx.formName} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A]" />
               <input type="tel" name="phone" placeholder={tx.formPhone} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A]" />
+              <input type="email" name="email" placeholder={tx.formEmail} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A]" />
               <select name="service" className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C4873A]">
                 <option value="">{tx.formService}</option>
                 {tx.services.map(s => <option key={s.title} value={s.title}>{s.title}</option>)}
