@@ -2,6 +2,7 @@
 
 import { LangProvider, useLang } from "./context/lang"
 import Header from "./components/Header"
+import NewsSection from "./components/NewsSection"
 
 const t = {
   zh: {
@@ -258,6 +259,8 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <NewsSection />
 
       {/* Contact */}
       <section className="py-24 px-6 bg-[#1B2B4E]" id="contact">
