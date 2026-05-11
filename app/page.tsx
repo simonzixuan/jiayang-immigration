@@ -49,6 +49,14 @@ const t = {
     formService: "咨询类型",
     formMsg: "请简要描述您的情况",
     formBtn: "提交咨询",
+    processTag: "服务流程",
+    processTitle: "四步开启您的移民之旅",
+    steps: [
+      { num: "01", title: "免费咨询", desc: "通过电话、微信或邮件与我们联系，顾问将免费评估您的移民资格和最佳方案。" },
+      { num: "02", title: "案件评估", desc: "深入分析您的个人情况，制定专属移民方案，明确所需材料和时间线。" },
+      { num: "03", title: "材料准备", desc: "全程指导材料收集与整理，确保申请文件完整、准确，最大化获批概率。" },
+      { num: "04", title: "递交跟进", desc: "代您递交申请，全程跟进审理进度，及时处理移民局的补件要求。" },
+    ],
     footerRights: "版权所有",
     footerLicense: "加拿大持牌移民顾问",
   },
@@ -97,6 +105,14 @@ const t = {
     formService: "Service Type",
     formMsg: "Briefly describe your situation",
     formBtn: "Submit Inquiry",
+    processTag: "How It Works",
+    processTitle: "Four Steps to Your New Life",
+    steps: [
+      { num: "01", title: "Free Consultation", desc: "Contact us by phone, WeChat, or email. Our consultant will assess your eligibility and recommend the best immigration pathway at no cost." },
+      { num: "02", title: "Case Assessment", desc: "We conduct an in-depth analysis of your situation and create a personalized immigration plan with clear timelines and document requirements." },
+      { num: "03", title: "Document Preparation", desc: "We guide you through every document required, ensuring your application is complete and accurate to maximize approval chances." },
+      { num: "04", title: "Submission & Follow-up", desc: "We submit your application and track its progress, responding promptly to any requests from immigration authorities." },
+    ],
     footerRights: "All Rights Reserved",
     footerLicense: "Licensed Canadian Immigration Consultant",
   },
@@ -160,6 +176,28 @@ function Home() {
                 <p className="font-display text-3xl font-light text-[#C4873A] mb-4">{s.num}</p>
                 <h3 className="text-base font-medium text-[#1B2B4E] mb-3">{s.title}</h3>
                 <p className="text-[#5A6A82] text-sm leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="py-24 px-6 bg-[#1B2B4E]">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-16">
+            <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-4">{tx.processTag}</p>
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-white">{tx.processTitle}</h2>
+          </div>
+          <div className="grid md:grid-cols-4 gap-0">
+            {tx.steps.map((s, i) => (
+              <div key={s.num} className="relative p-8 border-l border-[#2A3E60] first:border-l-0 md:first:border-l md:border-l">
+                <p className="font-display text-4xl font-light text-[#C4873A] mb-4">{s.num}</p>
+                <h3 className="text-base font-medium text-white mb-3">{s.title}</h3>
+                <p className="text-[#A8B8D0] text-sm leading-relaxed">{s.desc}</p>
+                {i < tx.steps.length - 1 && (
+                  <span className="hidden md:block absolute top-8 right-0 translate-x-1/2 text-[#C4873A] text-lg z-10">→</span>
+                )}
               </div>
             ))}
           </div>
