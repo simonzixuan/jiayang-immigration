@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Noto_Sans_SC, Lora } from "next/font/google"
+import Script from "next/script"
 import "./globals.css"
 
 const notoSansSC = Noto_Sans_SC({
@@ -131,10 +132,12 @@ export default function RootLayout({
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-04DZ8SYV48" />
-        <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-04DZ8SYV48');` }} />
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-04DZ8SYV48" strategy="afterInteractive" />
+        <Script id="ga-init" strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-04DZ8SYV48');`}</Script>
+      </body>
     </html>
   )
 }
