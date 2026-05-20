@@ -18,9 +18,40 @@ const lora = Lora({
 
 export const metadata: Metadata = {
   title: "佳阳移民 | Richmond RCIC 持牌移民顾问 | JiaYang Immigration",
-  description: "佳阳移民是 Richmond BC 持牌移民顾问（RCIC），提供家庭团聚、工签、学签、旅游签、入籍及枫叶卡更新等全面移民服务。专业可信赖。",
+  description: "佳阳移民是 Richmond BC 持牌移民顾问（RCIC），提供家庭团聚、工签、学签、旅游签、入籍及枫叶卡更新等全面移民服务。专业可信赖。JiaYang Immigration — Licensed RCIC in Richmond BC offering family sponsorship, work permits, study permits, Express Entry, and more.",
   metadataBase: new URL("https://jiayangimmigration.com"),
   verification: { google: "3DtVqQJdYiZJCdtgYp5ybZVFQPBLOzJ0w-XwCP75ctk" },
+  keywords: [
+    "Richmond移民顾问", "RCIC", "持牌移民顾问", "家庭团聚", "配偶移民", "父母移民",
+    "Express Entry", "快速通道", "工签", "学签", "枫叶卡", "入籍",
+    "佳阳移民", "列治文移民", "大温哥华移民",
+    "Richmond immigration consultant", "RCIC licensed", "family sponsorship",
+    "spousal sponsorship", "work permit", "study permit", "Canadian citizenship",
+    "JiaYang Immigration", "Richmond BC immigration",
+  ],
+  alternates: {
+    canonical: "https://jiayangimmigration.com",
+    languages: {
+      "zh-CN": "https://jiayangimmigration.com",
+      "en-CA": "https://jiayangimmigration.com",
+    },
+  },
+  openGraph: {
+    title: "佳阳移民 | Richmond RCIC 持牌移民顾问 | JiaYang Immigration",
+    description: "Richmond BC 持牌移民顾问，深耕大温哥华多年，提供家庭团聚、Express Entry、工签、学签等全面移民服务。首次咨询免费。Licensed RCIC serving Greater Vancouver.",
+    url: "https://jiayangimmigration.com",
+    siteName: "佳阳移民 JiaYang Immigration",
+    locale: "zh_CN",
+    alternateLocale: ["en_CA"],
+    type: "website",
+    images: [{ url: "/logo.png", width: 512, height: 512, alt: "佳阳移民 JiaYang Immigration" }],
+  },
+  twitter: {
+    card: "summary",
+    title: "佳阳移民 | Richmond RCIC 持牌移民顾问",
+    description: "Richmond BC 持牌移民顾问，家庭团聚、Express Entry、工签、学签。首次咨询免费。",
+    images: ["/logo.png"],
+  },
 }
 
 const faqSchema = {
