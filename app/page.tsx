@@ -25,6 +25,7 @@ const t = {
       { num: "06", title: "入籍与枫叶卡", desc: "加拿大入籍申请及永久居民卡更新，助您深根加拿大，开创新篇章。" },
       { num: "07", title: "企业家移民", desc: "BC省企业家移民、联邦创业签证（SUV）等项目，助有创业意向的您在加拿大落地生根。" },
       { num: "08", title: "投资移民", desc: "省提名投资类项目评估与申请，为具备资产实力的申请人规划最优移民路径。" },
+      { num: "09", title: "快速通道 Express Entry", desc: "联邦技术移民主流路径，综合评分（CRS）评估、提分策略及全程申请，助您高效获得永居身份。" },
     ],
     aboutTag: "关于我们",
     aboutTitle: "佳阳移民",
@@ -99,6 +100,7 @@ const t = {
       { num: "06", title: "Citizenship & PR Card", desc: "Citizenship applications and PR card renewals to help you build deeper roots in Canada." },
       { num: "07", title: "Entrepreneur Immigration", desc: "BC PNP Entrepreneur stream, Federal Start-Up Visa (SUV), and more — ideal pathways for business-minded applicants ready to launch in Canada." },
       { num: "08", title: "Investor Immigration", desc: "Assessment and application support for provincial nominee investor programs, helping high-net-worth applicants find the most efficient immigration route." },
+      { num: "09", title: "Express Entry", desc: "Canada's flagship skilled worker pathway. We assess your CRS score, develop score-boosting strategies, and manage your full application for permanent residence." },
     ],
     aboutTag: "About Us",
     aboutTitle: "JiaYang Immigration",
@@ -163,7 +165,7 @@ function Home() {
   const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle")
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault()
     setFormState("submitting")
     const data = new FormData(e.currentTarget)
