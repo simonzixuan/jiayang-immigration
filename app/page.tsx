@@ -283,8 +283,8 @@ function Home() {
             </p>
             <p className="text-[#A8B8D0] text-sm leading-relaxed">
               {lang === "zh"
-                ? "自2016年成立以来，佳阳移民始终坚持以客户利益为先，用专业赢得每一位客户的信任。"
-                : "Since 2016, JiaYang Immigration has put clients first, earning trust through professionalism and dedication."}
+                ? "多年深耕移民行业，佳阳移民始终坚持以客户利益为先，用专业赢得每一位客户的信任。"
+                : "With years of deep expertise in Canadian immigration, JiaYang Immigration has put clients first, earning trust through professionalism and dedication."}
             </p>
           </div>
         </div>
