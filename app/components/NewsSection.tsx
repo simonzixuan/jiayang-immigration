@@ -20,7 +20,7 @@ export default function NewsSection() {
   useEffect(() => {
     client.fetch(`*[_type == "news"] | order(publishedAt desc)[0...6] {
       _id, title, titleEn, publishedAt, summary, summaryEn
-    }`).then(setNews)
+    }`).then(setNews).catch(() => {})
   }, [])
 
   if (news.length === 0) return null
