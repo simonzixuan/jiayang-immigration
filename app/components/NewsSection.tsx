@@ -26,26 +26,26 @@ export default function NewsSection() {
   if (news.length === 0) return null
 
   return (
-    <section className="py-24 px-6 bg-[#F5F7FB]" id="news">
-      <div className="max-w-6xl mx-auto">
+    <section className="bg-[#F7F9FC] px-5 py-24 sm:px-6" id="news">
+      <div className="mx-auto max-w-7xl">
         <div className="mb-16">
-          <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-4">
+          <p className="mb-4 text-[11px] uppercase tracking-[0.34em] text-[#9B6727]">
             {lang === "zh" ? "移民动态" : "Immigration News"}
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-medium text-[#1B2B4E]">
+          <h2 className="font-display text-4xl font-medium text-[#1B2B4E] md:text-5xl">
             {lang === "zh" ? "最新政策动态" : "Latest Updates"}
           </h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid gap-4 md:grid-cols-3">
           {news.map((item) => (
-            <div key={item._id} className="bg-white border border-[#E5E9F0] p-8 hover:border-[#C4873A] transition-colors">
-              <p className="text-[10px] tracking-[0.2em] uppercase text-[#C4873A] mb-4">
+            <div key={item._id} className="rounded-2xl border border-[#DDE6F0] bg-white p-7 shadow-[0_14px_40px_rgba(16,33,59,0.05)] transition hover:-translate-y-1 hover:border-[#C4873A]">
+              <p className="mb-4 text-[10px] uppercase tracking-[0.2em] text-[#C4873A]">
                 {new Date(item.publishedAt).toLocaleDateString(lang === "zh" ? "zh-CN" : "en-CA", { year: "numeric", month: "long", day: "numeric" })}
               </p>
-              <h3 className="text-base font-medium text-[#1B2B4E] mb-3 leading-snug">
+              <h3 className="mb-3 text-base font-medium leading-snug text-[#1B2B4E]">
                 {lang === "zh" ? item.title : (item.titleEn || item.title)}
               </h3>
-              <p className="text-[#5A6A82] text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed text-[#5A6A82]">
                 {lang === "zh" ? item.summary : (item.summaryEn || item.summary)}
               </p>
             </div>

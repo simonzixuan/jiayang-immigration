@@ -1,21 +1,27 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { LangProvider, useLang } from "./context/lang"
 import Header from "./components/Header"
 import NewsSection from "./components/NewsSection"
 import FloatingContact from "./components/FloatingContact"
+
+const officeAddress = "5599 Cooney Rd, Unit 2, Richmond, BC V6X 3M6"
+const officeMapUrl = "https://www.google.com/maps/search/?api=1&query=5599%20Cooney%20Rd%20Unit%202%20Richmond%20BC%20V6X%203M6"
 
 const t = {
   zh: {
     heroTag: "Richmond BC 持牌移民顾问 · RCIC Licensed",
     heroTitle: "列治文专业移民服务",
     heroSub: "用心做好细节，以诚赢得信赖",
-    heroDesc: "佳阳移民深耕大温哥华列治文移民领域近7年，为华人及各族裔客户提供全面专业的移民服务。",
+    heroDesc: "佳阳移民深耕大温哥华列治文移民领域10年+，为华人及各族裔客户提供全面专业的移民服务。",
     heroBtn: "立即免费咨询",
     heroBtn2: "查看服务",
+    trustItems: ["Richmond 办公室", "中英双语沟通", "首次咨询免费"],
     servicesTag: "服务范围",
     servicesTitle: "全方位移民服务",
+    serviceNote: "免费初步评估",
     services: [
       { num: "01", title: "难民与人道主义", desc: "为需要庇护和人道主义保护的申请人提供专业支持，守护您的安全与尊严。" },
       { num: "02", title: "家庭团聚", desc: "协助配偶、子女及父母移民申请，让家人早日团聚，共享天伦之乐。" },
@@ -29,7 +35,7 @@ const t = {
     ],
     aboutTag: "关于我们",
     aboutTitle: "佳阳移民",
-    aboutDesc1: "佳阳移民是位于 Richmond BC 的持牌移民顾问公司（RCIC），深耕大温哥华列治文移民领域近7年，致力于为华人及各族裔客户提供专业、真诚的移民服务。",
+    aboutDesc1: "佳阳移民是位于 Richmond BC 的持牌移民顾问公司（RCIC），深耕大温哥华列治文移民领域10年+，致力于为华人及各族裔客户提供专业、真诚的移民服务。",
     aboutDesc2: "我们的宗旨是「用心做好细节，以诚赢得信赖」。无论案件简单还是复杂，我们都全力以赴，为每位客户争取最好的结果。",
     rcic: "加拿大持牌移民顾问",
     rcicSub: "ICCRC Licensed",
@@ -46,6 +52,9 @@ const t = {
     contactTag: "联系我们",
     contactTitle: "立即咨询",
     contactDesc: "无论您处于移民旅程的哪个阶段，我们都在这里为您解答疑惑，提供专业建议。",
+    visitNote: "可预约到店咨询",
+    mapLink: "打开地图导航",
+    responseNote: "提交后我们会尽快回复，也可以直接添加微信 Kris0214。",
     phone: "电话",
     email: "邮箱",
     wechat: "微信",
@@ -86,11 +95,13 @@ const t = {
     heroTag: "Richmond BC Licensed Immigration Consultant · RCIC Licensed",
     heroTitle: "Richmond Professional Immigration Services",
     heroSub: "Attention to Detail. Trust Through Integrity.",
-    heroDesc: "JiaYang Immigration is a Richmond BC RCIC licensed firm, serving Chinese and multicultural clients across Greater Vancouver for nearly 7 years with expertise and care.",
+    heroDesc: "JiaYang Immigration is a Richmond BC RCIC licensed firm, serving Chinese and multicultural clients across Greater Vancouver for 10+ years with expertise and care.",
     heroBtn: "Free Consultation",
     heroBtn2: "Our Services",
+    trustItems: ["Richmond office", "Chinese & English support", "Free initial consultation"],
     servicesTag: "Services",
     servicesTitle: "Comprehensive Immigration Services",
+    serviceNote: "Free initial assessment",
     services: [
       { num: "01", title: "Refugee & Humanitarian", desc: "Professional support for asylum seekers and humanitarian protection applicants, safeguarding your safety and dignity." },
       { num: "02", title: "Family Reunification", desc: "Sponsorship applications for spouses, children, and parents to bring your loved ones to Canada." },
@@ -104,7 +115,7 @@ const t = {
     ],
     aboutTag: "About Us",
     aboutTitle: "JiaYang Immigration",
-    aboutDesc1: "JiaYang Immigration is a Richmond BC RCIC licensed immigration consulting company with nearly 7 years of experience in Greater Vancouver, dedicated to serving Chinese and multicultural clients with professionalism and integrity.",
+    aboutDesc1: "JiaYang Immigration is a Richmond BC RCIC licensed immigration consulting company with 10+ years of experience in Greater Vancouver, dedicated to serving Chinese and multicultural clients with professionalism and integrity.",
     aboutDesc2: "Our motto: \"Attention to detail, trust through integrity.\" Whether your case is simple or complex, we give our full effort to achieve the best possible outcome for every client.",
     rcic: "Licensed Canadian Immigration Consultant",
     rcicSub: "ICCRC Licensed",
@@ -121,6 +132,9 @@ const t = {
     contactTag: "Contact",
     contactTitle: "Get In Touch",
     contactDesc: "Wherever you are in your immigration journey, we are here to answer your questions and provide professional advice.",
+    visitNote: "In-office consultation by appointment",
+    mapLink: "Open map directions",
+    responseNote: "After submitting, we will reply as soon as possible. You can also add WeChat Kris0214 directly.",
     phone: "Phone",
     email: "Email",
     wechat: "WeChat",
@@ -178,24 +192,33 @@ function Home() {
   }
 
   return (
-    <main className="flex-1">
+    <main className="flex-1 bg-[#F7F9FC] text-[#10213B]">
       <Header />
 
       {/* Hero */}
-      <section className="min-h-screen flex items-center pt-16 relative overflow-hidden" style={{background: "linear-gradient(135deg, #1B2B4E 0%, #0F1A30 100%)"}}>
-        <div className="absolute inset-0 z-0" style={{backgroundImage: "url('/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.15}} />
-        <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
-          <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-8">{tx.heroTag}</p>
-          <h1 className="font-display text-5xl md:text-7xl font-medium text-white leading-tight mb-6 max-w-3xl">
+      <section className="relative min-h-[700px] overflow-hidden bg-[#F2F6FB] pt-[4.5rem] md:min-h-[860px]">
+        <div className="absolute inset-0 z-0 md:left-[39%]" style={{backgroundImage: "url('/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.48}} />
+        <div className="absolute inset-0 z-0 bg-[linear-gradient(90deg,#F2F6FB_0%,rgba(242,246,251,0.94)_38%,rgba(242,246,251,0.56)_62%,rgba(242,246,251,0.18)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 z-0 h-28 bg-[linear-gradient(180deg,rgba(242,246,251,0)_0%,#F7F9FC_88%)]" />
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 py-20 md:py-[6.5rem] w-full motion-safe:animate-[fade-in-up_0.7s_ease-out_both]">
+          <p className="text-[11px] tracking-[0.22em] uppercase text-[#9B6727] mb-7 sm:tracking-[0.34em]">{tx.heroTag}</p>
+          <h1 className="font-display text-[2.2rem] sm:text-5xl md:text-7xl font-medium text-[#10213B] leading-[1.08] mb-6 max-w-[9.8em] md:max-w-3xl">
             {tx.heroTitle}
           </h1>
-          <p className="text-[#C4873A] text-lg md:text-xl font-display italic mb-6">{tx.heroSub}</p>
-          <p className="text-[#A8B8D0] text-base leading-relaxed mb-12 max-w-xl">{tx.heroDesc}</p>
+          <p className="text-[#9B6727] text-lg md:text-xl font-display italic mb-6">{tx.heroSub}</p>
+          <p className="text-[#52647C] text-base leading-relaxed mb-8 max-w-xl">{tx.heroDesc}</p>
+          <div className="mb-10 flex max-w-2xl flex-wrap gap-2">
+            {tx.trustItems.map((item) => (
+              <span key={item} className="shrink-0 rounded-full border border-[#DDE6F0] bg-white/70 px-4 py-2 text-[10px] uppercase tracking-[0.12em] text-[#52647C] backdrop-blur sm:text-[11px] sm:tracking-[0.16em]">
+                {item}
+              </span>
+            ))}
+          </div>
           <div className="flex flex-wrap gap-4">
-            <a href="#contact" className="inline-block bg-[#C4873A] text-white px-10 py-4 text-[11px] tracking-[0.3em] uppercase hover:bg-[#A06A20] transition-colors">
+            <a href="#contact" className="inline-flex h-[3.25rem] items-center justify-center rounded-full bg-[#C4873A] text-white px-8 text-[11px] tracking-[0.26em] uppercase shadow-[0_22px_44px_rgba(196,135,58,0.34)] hover:bg-[#A06A20] transition-colors">
               {tx.heroBtn}
             </a>
-            <a href="#services" className="inline-block border border-[#A8B8D0] text-[#A8B8D0] px-10 py-4 text-[11px] tracking-[0.3em] uppercase hover:border-white hover:text-white transition-colors">
+            <a href="#services" className="inline-flex h-[3.25rem] items-center justify-center rounded-full border border-[#C7D2E0] bg-white/78 text-[#10213B] px-8 text-[11px] tracking-[0.26em] uppercase hover:border-[#10213B] transition-colors">
               {tx.heroBtn2}
             </a>
           </div>
@@ -203,34 +226,35 @@ function Home() {
       </section>
 
       {/* Stats Bar */}
-      <section className="bg-[#C4873A]">
-        <div className="max-w-6xl mx-auto px-6 py-8 grid grid-cols-3 divide-x divide-[#A06A20]">
+      <section className="relative z-20 -mt-20 px-5 sm:px-6">
+        <div className="max-w-7xl mx-auto rounded-[1.75rem] border border-[#DDE6F0] bg-white px-4 py-3 grid grid-cols-1 divide-y divide-[#E6EDF5] shadow-[0_22px_60px_rgba(16,33,59,0.10)] sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:py-7">
           {[
-            { num: "7+", label: tx.stat1 },
+            { num: "10+", label: tx.stat1 },
             { num: "400+", label: tx.stat2 },
             { num: "5.0 ★", label: tx.stat3 },
           ].map((s) => (
-            <div key={s.label} className="text-center px-4">
-              <p className="font-display text-3xl font-medium text-white mb-1">{s.num}</p>
-              <p className="text-[10px] tracking-[0.2em] uppercase text-white/70">{s.label}</p>
+            <div key={s.label} className="text-center px-4 py-4 sm:py-0">
+              <p className="font-display text-3xl font-medium text-[#10213B] mb-1">{s.num}</p>
+              <p className="text-[10px] tracking-[0.2em] uppercase text-[#718096]">{s.label}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Services */}
-      <section className="py-24 px-6 bg-white" id="services">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-24 px-5 sm:px-6 bg-[#F7F9FC]" id="services">
+        <div className="max-w-7xl mx-auto">
           <div className="mb-16">
-            <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-4">{tx.servicesTag}</p>
+            <p className="text-[11px] tracking-[0.34em] uppercase text-[#9B6727] mb-4">{tx.servicesTag}</p>
             <h2 className="font-display text-4xl md:text-5xl font-medium text-[#1B2B4E]">{tx.servicesTitle}</h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#E5E9F0]">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {tx.services.map((s) => (
-              <div key={s.title} className="bg-white p-8 hover:bg-[#F5F7FB] transition-colors">
+              <div key={s.title} className="flex min-h-[16rem] flex-col rounded-2xl border border-[#DDE6F0] bg-white p-7 shadow-[0_14px_40px_rgba(16,33,59,0.05)] transition duration-300 hover:-translate-y-1 hover:border-[#C4873A]">
                 <p className="font-display text-3xl font-light text-[#C4873A] mb-4">{s.num}</p>
                 <h3 className="text-base font-medium text-[#1B2B4E] mb-3">{s.title}</h3>
                 <p className="text-[#5A6A82] text-sm leading-relaxed">{s.desc}</p>
+                <p className="mt-auto pt-6 text-[10px] uppercase tracking-[0.2em] text-[#C4873A]">{tx.serviceNote}</p>
               </div>
             ))}
           </div>
@@ -238,20 +262,20 @@ function Home() {
       </section>
 
       {/* Process */}
-      <section className="py-24 px-6 bg-[#1B2B4E]">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-24 px-5 sm:px-6 bg-[#10213B]">
+        <div className="max-w-7xl mx-auto">
           <div className="mb-16">
-            <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-4">{tx.processTag}</p>
+            <p className="text-[11px] tracking-[0.34em] uppercase text-[#C4873A] mb-4">{tx.processTag}</p>
             <h2 className="font-display text-4xl md:text-5xl font-medium text-white">{tx.processTitle}</h2>
           </div>
-          <div className="grid md:grid-cols-4 gap-0">
+          <div className="grid gap-4 md:grid-cols-4">
             {tx.steps.map((s, i) => (
-              <div key={s.num} className="relative p-8 border-l border-[#2A3E60] first:border-l-0 md:first:border-l md:border-l">
+              <div key={s.num} className="relative rounded-2xl border border-[#253957] bg-white/[0.04] p-7">
                 <p className="font-display text-4xl font-light text-[#C4873A] mb-4">{s.num}</p>
                 <h3 className="text-base font-medium text-white mb-3">{s.title}</h3>
                 <p className="text-[#A8B8D0] text-sm leading-relaxed">{s.desc}</p>
                 {i < tx.steps.length - 1 && (
-                  <span className="hidden md:block absolute top-8 right-0 translate-x-1/2 text-[#C4873A] text-lg z-10">→</span>
+                  <span className="hidden md:block absolute top-8 -right-3 text-[#C4873A] text-lg z-10">→</span>
                 )}
               </div>
             ))}
@@ -260,16 +284,18 @@ function Home() {
       </section>
 
       {/* About */}
-      <section className="py-24 px-6 bg-[#F5F7FB]" id="about">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <section className="py-24 px-5 sm:px-6 bg-white" id="about">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-4">{tx.aboutTag}</p>
+            <p className="text-[11px] tracking-[0.34em] uppercase text-[#9B6727] mb-4">{tx.aboutTag}</p>
             <h2 className="font-display text-4xl md:text-5xl font-medium text-[#1B2B4E] mb-8">{tx.aboutTitle}</h2>
             <p className="text-[#5A6A82] leading-relaxed mb-4">{tx.aboutDesc1}</p>
             <p className="text-[#5A6A82] leading-relaxed mb-10">{tx.aboutDesc2}</p>
-            <div className="inline-flex items-center gap-4 bg-white border border-[#E5E9F0] px-6 py-4">
-              <div className="w-8 h-8 bg-[#1B2B4E] flex items-center justify-center">
-                <span className="text-white text-sm font-bold">🍁</span>
+            <div className="inline-flex items-center gap-4 rounded-2xl bg-[#F7F9FC] border border-[#DDE6F0] px-6 py-4">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1B2B4E] text-white">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 3l1.6 4.1 3.9-1.5-1.8 4.1 4.3.7-3.7 2.4 2.7 3.5-4.3-.7L12 21l-2.7-5.4-4.3.7 2.7-3.5L4 10.4l4.3-.7-1.8-4.1 3.9 1.5L12 3z" fill="currentColor" />
+                </svg>
               </div>
               <div>
                 <p className="text-sm font-medium text-[#1B2B4E]">{tx.rcic}</p>
@@ -277,7 +303,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="bg-[#1B2B4E] p-12 text-white">
+          <div className="rounded-[2rem] bg-[#10213B] p-8 sm:p-12 text-white shadow-[0_24px_70px_rgba(16,33,59,0.18)]">
             <p className="font-display text-2xl italic text-[#C4873A] mb-6">
               {lang === "zh" ? "「用心做好细节，以诚赢得信赖」" : '"Attention to detail, trust through integrity."'}
             </p>
@@ -291,13 +317,13 @@ function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="py-24 px-6 bg-white">
+      <section className="py-24 px-5 sm:px-6 bg-[#F7F9FC]">
         <div className="max-w-4xl mx-auto">
           <div className="mb-16">
-            <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-4">{tx.faqTag}</p>
+            <p className="text-[11px] tracking-[0.34em] uppercase text-[#9B6727] mb-4">{tx.faqTag}</p>
             <h2 className="font-display text-4xl md:text-5xl font-medium text-[#1B2B4E]">{tx.faqTitle}</h2>
           </div>
-          <div className="divide-y divide-[#E5E9F0]">
+          <div className="rounded-[2rem] border border-[#DDE6F0] bg-white px-5 sm:px-8 divide-y divide-[#E5E9F0] shadow-[0_16px_44px_rgba(16,33,59,0.06)]">
             {tx.faqs.map((item, i) => (
               <div key={i}>
                 <button
@@ -308,7 +334,7 @@ function Home() {
                   <span className="text-[#C4873A] text-xl shrink-0">{openFaq === i ? "−" : "+"}</span>
                 </button>
                 {openFaq === i && (
-                  <p className="text-[#5A6A82] text-sm leading-relaxed pb-6">{item.a}</p>
+                  <p className="text-[#5A6A82] text-sm leading-relaxed pb-6 motion-safe:animate-[fade-in-up_0.22s_ease-out_both]">{item.a}</p>
                 )}
               </div>
             ))}
@@ -317,21 +343,21 @@ function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 px-6 bg-[#1B2B4E]" id="testimonials">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-24 px-5 sm:px-6 bg-white" id="testimonials">
+        <div className="max-w-7xl mx-auto">
           <div className="mb-16">
-            <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-4">{tx.testimonialsTag}</p>
-            <h2 className="font-display text-4xl md:text-5xl font-medium text-white">{tx.testimonialsTitle}</h2>
+            <p className="text-[11px] tracking-[0.34em] uppercase text-[#9B6727] mb-4">{tx.testimonialsTag}</p>
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-[#10213B]">{tx.testimonialsTitle}</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8 items-stretch">
             {tx.testimonials.map((r) => (
-              <div key={r.name} className="border border-[#2A3E60] p-8 flex flex-col">
+              <div key={r.name} className="rounded-2xl border border-[#DDE6F0] bg-[#F7F9FC] p-8 flex flex-col">
                 <div className="flex gap-1 mb-6">
                   {[1,2,3,4,5].map(i => <span key={i} className="text-[#C4873A] text-sm">★</span>)}
                 </div>
-                <p className="text-[#A8B8D0] leading-relaxed mb-6 flex-1">"{r.text}"</p>
+                <p className="text-[#52647C] leading-relaxed mb-6 flex-1">&ldquo;{r.text}&rdquo;</p>
                 <div className="flex items-center justify-between">
-                  <p className="text-sm font-medium text-white">{r.name}</p>
+                  <p className="text-sm font-medium text-[#10213B]">{r.name}</p>
                   <span className="text-[10px] tracking-[0.2em] uppercase text-[#C4873A] border border-[#C4873A] px-2 py-1">{r.type}</span>
                 </div>
               </div>
@@ -343,69 +369,89 @@ function Home() {
       <NewsSection />
 
       {/* Contact */}
-      <section className="py-24 px-6 bg-[#1B2B4E]" id="contact">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-16">
-            <p className="text-[11px] tracking-[0.4em] uppercase text-[#C4873A] mb-4">{tx.contactTag}</p>
-            <h2 className="font-display text-4xl md:text-5xl font-medium text-white mb-4">{tx.contactTitle}</h2>
-            <p className="text-[#A8B8D0]">{tx.contactDesc}</p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-16">
-            <div className="space-y-8">
-              <div className="flex gap-6 border-b border-[#2A3E60] pb-6">
-                <span className="text-[10px] tracking-[0.3em] uppercase text-[#C4873A] w-14 pt-1 shrink-0">{tx.phone}</span>
-                <a href="tel:+16042386686" className="text-white text-sm hover:text-[#C4873A] transition-colors">+1 (604) 238-6686</a>
+      <section className="relative overflow-hidden bg-[#10213B] px-5 py-24 sm:px-6" id="contact">
+        <div className="absolute inset-x-0 top-0 h-px bg-[#DDE6F0]/10" />
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <div>
+            <p className="mb-4 text-[11px] uppercase tracking-[0.34em] text-[#C4873A]">{tx.contactTag}</p>
+            <h2 className="mb-5 font-display text-4xl font-medium text-white md:text-5xl">{tx.contactTitle}</h2>
+            <p className="max-w-lg leading-relaxed text-[#A8B8D0]">{tx.contactDesc}</p>
+
+            <div className="mt-10 divide-y divide-[#2A3E60] rounded-[1.75rem] border border-[#2A3E60] bg-white/[0.04]">
+              <div className="grid gap-2 px-5 py-5 sm:grid-cols-[6rem_1fr]">
+                <span className="text-[10px] uppercase tracking-[0.24em] text-[#C4873A]">{tx.phone}</span>
+                <a href="tel:+16042386686" className="text-sm text-white transition-colors hover:text-[#C4873A]">+1 (604) 238-6686</a>
               </div>
-              <div className="flex gap-6 border-b border-[#2A3E60] pb-6">
-                <span className="text-[10px] tracking-[0.3em] uppercase text-[#C4873A] w-14 pt-1 shrink-0">{tx.email}</span>
-                <a href="mailto:jy.simon.ca@gmail.com" className="text-white text-sm hover:text-[#C4873A] transition-colors">jy.simon.ca@gmail.com</a>
+              <div className="grid gap-2 px-5 py-5 sm:grid-cols-[6rem_1fr]">
+                <span className="text-[10px] uppercase tracking-[0.24em] text-[#C4873A]">{tx.email}</span>
+                <a href="mailto:jy.simon.ca@gmail.com" className="break-all text-sm text-white transition-colors hover:text-[#C4873A]">jy.simon.ca@gmail.com</a>
               </div>
-              <div className="flex gap-6 border-b border-[#2A3E60] pb-6">
-                <span className="text-[10px] tracking-[0.3em] uppercase text-[#C4873A] w-14 pt-1 shrink-0">{tx.address}</span>
-                <span className="text-white text-sm">5599 Cooney Rd, Unit 2, Richmond, BC V6X 3M6</span>
-              </div>
-              <div className="flex gap-6 pt-2">
-                <span className="text-[10px] tracking-[0.3em] uppercase text-[#C4873A] w-14 pt-1 shrink-0">{tx.wechat}</span>
+              <div className="grid gap-2 px-5 py-5 sm:grid-cols-[6rem_1fr]">
+                <span className="text-[10px] uppercase tracking-[0.24em] text-[#C4873A]">{tx.address}</span>
                 <div>
-                  <img src="/wechat-qr.jpg" alt="WeChat QR Code" className="w-32 h-32 object-cover" />
-                  <p className="text-[#5A7090] text-xs mt-2">Kris0214</p>
+                  <a href={officeMapUrl} target="_blank" rel="noreferrer" className="text-sm leading-relaxed text-white transition-colors hover:text-[#C4873A]">
+                    {officeAddress}
+                  </a>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    <span className="rounded-full border border-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-[#A8B8D0]">{tx.visitNote}</span>
+                    <a href={officeMapUrl} target="_blank" rel="noreferrer" className="rounded-full border border-[#C4873A]/40 px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-[#C4873A] transition-colors hover:bg-[#C4873A] hover:text-white">
+                      {tx.mapLink}
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="grid gap-4 px-5 py-5 sm:grid-cols-[6rem_1fr]">
+                <span className="text-[10px] uppercase tracking-[0.24em] text-[#C4873A]">{tx.wechat}</span>
+                <div className="flex items-center gap-4">
+                  <Image src="/wechat-qr.jpg" alt="WeChat QR Code" width={112} height={112} className="h-28 w-28 rounded-2xl border border-white/10 object-cover" />
+                  <div>
+                    <p className="text-sm text-white">Kris0214</p>
+                    <p className="mt-1 text-xs text-[#7F91AA]">WeChat</p>
+                  </div>
                 </div>
               </div>
             </div>
-            {formState === "success" ? (
-              <div className="flex items-center justify-center bg-[#2A3E60] border border-[#C4873A] p-12 text-center">
-                <div>
-                  <p className="text-[#C4873A] text-3xl mb-4">✓</p>
-                  <p className="text-white">{tx.formSuccess}</p>
-                </div>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <input required type="text" name="name" placeholder={tx.formName} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A]" />
-                <input required type="tel" name="phone" placeholder={tx.formPhone} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A]" />
-                <input type="email" name="email" placeholder={tx.formEmail} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A]" />
-                <select required name="service" className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C4873A]">
-                  <option value="">{tx.formService}</option>
-                  {tx.services.map(s => <option key={s.title} value={s.title}>{s.title}</option>)}
-                </select>
-                <textarea required name="message" rows={4} placeholder={tx.formMsg} className="w-full bg-[#2A3E60] border border-[#3A5070] px-4 py-3 text-sm text-white placeholder-[#5A7090] focus:outline-none focus:border-[#C4873A] resize-none" />
-                {formState === "error" && (
-                  <p className="text-red-400 text-sm">{tx.formError}</p>
-                )}
-                <button type="submit" disabled={formState === "submitting"} className="w-full bg-[#C4873A] text-white py-4 text-[11px] tracking-[0.3em] uppercase hover:bg-[#A06A20] transition-colors disabled:opacity-60">
-                  {formState === "submitting" ? tx.formSubmitting : tx.formBtn}
-                </button>
-              </form>
-            )}
           </div>
+
+          {formState === "success" ? (
+            <div className="flex min-h-[420px] items-center justify-center rounded-[2rem] border border-[#C4873A]/60 bg-white/[0.05] p-8 text-center shadow-[0_24px_70px_rgba(0,0,0,0.18)]">
+              <div>
+                <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#C4873A] text-white">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 12.5l4.2 4L19 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <p className="text-white">{tx.formSuccess}</p>
+                <p className="mt-3 text-sm text-[#A8B8D0]">{tx.responseNote}</p>
+              </div>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-4 rounded-[2rem] border border-[#2A3E60] bg-[#142846] p-5 shadow-[0_24px_70px_rgba(0,0,0,0.18)] sm:p-8">
+              <input required type="text" name="name" placeholder={tx.formName} className="w-full rounded-2xl border border-[#314765] bg-white/[0.06] px-4 py-3 text-sm text-white placeholder-[#7F91AA] outline-none transition-colors focus:border-[#C4873A]" />
+              <input required type="tel" name="phone" placeholder={tx.formPhone} className="w-full rounded-2xl border border-[#314765] bg-white/[0.06] px-4 py-3 text-sm text-white placeholder-[#7F91AA] outline-none transition-colors focus:border-[#C4873A]" />
+              <input type="email" name="email" placeholder={tx.formEmail} className="w-full rounded-2xl border border-[#314765] bg-white/[0.06] px-4 py-3 text-sm text-white placeholder-[#7F91AA] outline-none transition-colors focus:border-[#C4873A]" />
+              <select required name="service" className="w-full rounded-2xl border border-[#314765] bg-[#1B3658] px-4 py-3 text-sm text-white outline-none transition-colors focus:border-[#C4873A]">
+                <option value="">{tx.formService}</option>
+                {tx.services.map(s => <option key={s.title} value={s.title}>{s.title}</option>)}
+              </select>
+              <textarea required name="message" rows={5} placeholder={tx.formMsg} className="w-full resize-none rounded-2xl border border-[#314765] bg-white/[0.06] px-4 py-3 text-sm text-white placeholder-[#7F91AA] outline-none transition-colors focus:border-[#C4873A]" />
+              {formState === "error" && (
+                <p className="text-sm text-red-300">{tx.formError}</p>
+              )}
+              <button type="submit" disabled={formState === "submitting"} className="w-full rounded-full bg-[#C4873A] py-4 text-[11px] uppercase tracking-[0.3em] text-white transition-colors hover:bg-[#A06A20] disabled:opacity-60">
+                {formState === "submitting" ? tx.formSubmitting : tx.formBtn}
+              </button>
+              <p className="text-center text-xs leading-relaxed text-[#7F91AA]">{tx.responseNote}</p>
+            </form>
+          )}
         </div>
       </section>
 
       <FloatingContact />
 
       {/* Footer */}
-      <footer className="py-6 px-6 bg-[#111D33] text-center">
-        <p className="text-[#3A5070] text-[11px] tracking-[0.2em]">
+      <footer className="bg-[#0B1728] px-5 py-8 text-center sm:px-6">
+        <p className="text-[11px] tracking-[0.2em] text-[#6F8198]">
           © {new Date().getFullYear()} 佳阳移民 JiaYang Immigration · {tx.footerRights} · {tx.footerLicense}
         </p>
       </footer>
