@@ -142,15 +142,7 @@ const schema = {
     "postalCode": "V6X 3M6",
     "addressCountry": "CA"
   },
-  "areaServed": ["Richmond BC", "Vancouver", "Burnaby", "Surrey", "Canada"],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "24",
-    "bestRating": "5"
-  },
-  "openingHours": "Mo-Fr 10:00-18:00",
-  "sameAs": ["https://www.google.com/maps?cid=jiayangimmigration"]
+  "areaServed": ["Richmond BC", "Vancouver", "Burnaby", "Surrey", "Canada"]
 }
 
 export default function RootLayout({

@@ -35,7 +35,7 @@ export default function Header() {
               width={513}
               height={378}
               className="object-contain"
-              style={{ width: "64px", height: "auto" }}
+              style={{ width: "64px", height: "47px" }}
             />
             <div className="flex flex-col leading-tight">
               <span className="text-sm font-medium text-[#10213B] tracking-wide">佳阳移民</span>

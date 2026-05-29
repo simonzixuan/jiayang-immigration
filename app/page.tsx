@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { LangProvider, useLang } from "./context/lang"
 import Header from "./components/Header"
 import NewsSection from "./components/NewsSection"
@@ -21,17 +22,17 @@ const t = {
     trustItems: ["Richmond 办公室", "中英双语沟通", "首次咨询免费"],
     servicesTag: "服务范围",
     servicesTitle: "全方位移民服务",
-    serviceNote: "免费初步评估",
+    serviceNote: "免费评估 · 查看详情",
     services: [
-      { num: "01", title: "难民与人道主义", desc: "为需要庇护和人道主义保护的申请人提供专业支持，守护您的安全与尊严。" },
-      { num: "02", title: "家庭团聚", desc: "协助配偶、子女及父母移民申请，让家人早日团聚，共享天伦之乐。" },
-      { num: "03", title: "移民与留学", desc: "学习签证、工作许可、毕业生工签，为您的学业与职业发展保驾护航。" },
-      { num: "04", title: "旅游与探亲", desc: "加拿大、美国、澳大利亚旅游及探亲签证申请，专业备材，让您轻松往来，与家人保持联系。" },
-      { num: "05", title: "延期与续签", desc: "身份延期、续签及各类疑难案件处理，维护您在加拿大的合法身份。" },
-      { num: "06", title: "入籍与枫叶卡", desc: "加拿大入籍申请及永久居民卡更新，助您深根加拿大，开创新篇章。" },
-      { num: "07", title: "企业家移民", desc: "BC省企业家移民、联邦创业签证（SUV）等项目，助有创业意向的您在加拿大落地生根。" },
-      { num: "08", title: "投资移民", desc: "省提名投资类项目评估与申请，为具备资产实力的申请人规划最优移民路径。" },
-      { num: "09", title: "快速通道 Express Entry", desc: "联邦技术移民主流路径，综合评分（CRS）评估、提分策略及全程申请，助您高效获得永居身份。" },
+      { num: "01", title: "难民与人道主义", href: "/services/refugee-humanitarian", desc: "为需要庇护和人道主义保护的申请人提供专业支持，守护您的安全与尊严。" },
+      { num: "02", title: "家庭团聚", href: "/services/family-sponsorship", desc: "协助配偶、子女及父母移民申请，让家人早日团聚，共享天伦之乐。" },
+      { num: "03", title: "移民与留学", href: "/services/work-study-permit", desc: "学习签证、工作许可、毕业生工签，为您的学业与职业发展保驾护航。" },
+      { num: "04", title: "旅游与探亲", href: "/services/visitor-visa", desc: "加拿大、美国、澳大利亚旅游及探亲签证申请，专业备材，让您轻松往来，与家人保持联系。" },
+      { num: "05", title: "延期与续签", href: "/services/status-extension", desc: "身份延期、续签及各类疑难案件处理，维护您在加拿大的合法身份。" },
+      { num: "06", title: "入籍与枫叶卡", href: "/services/citizenship-pr-card", desc: "加拿大入籍申请及永久居民卡更新，助您深根加拿大，开创新篇章。" },
+      { num: "07", title: "企业家移民", href: "/services/entrepreneur-immigration", desc: "BC省企业家移民、联邦创业签证（SUV）等项目，助有创业意向的您在加拿大落地生根。" },
+      { num: "08", title: "投资移民", href: "/services/investor-immigration", desc: "省提名投资类项目评估与申请，为具备资产实力的申请人规划最优移民路径。" },
+      { num: "09", title: "快速通道 Express Entry", href: "/services/express-entry", desc: "联邦技术移民主流路径，综合评分（CRS）评估、提分策略及全程申请，助您高效获得永居身份。" },
     ],
     aboutTag: "关于我们",
     aboutTitle: "佳阳移民",
@@ -101,17 +102,17 @@ const t = {
     trustItems: ["Richmond office", "Chinese & English support", "Free initial consultation"],
     servicesTag: "Services",
     servicesTitle: "Comprehensive Immigration Services",
-    serviceNote: "Free initial assessment",
+    serviceNote: "Free assessment · Details",
     services: [
-      { num: "01", title: "Refugee & Humanitarian", desc: "Professional support for asylum seekers and humanitarian protection applicants, safeguarding your safety and dignity." },
-      { num: "02", title: "Family Reunification", desc: "Sponsorship applications for spouses, children, and parents to bring your loved ones to Canada." },
-      { num: "03", title: "Immigration & Study", desc: "Study permits, work permits, and PGWP applications to support your academic and career journey." },
-      { num: "04", title: "Tourism & Family Visits", desc: "Visitor and tourist visa applications for Canada, the US, and Australia — professional document preparation to keep you connected with family." },
-      { num: "05", title: "Extensions & Renewals", desc: "Status extensions, renewals, and complex case handling to maintain your legal status in Canada." },
-      { num: "06", title: "Citizenship & PR Card", desc: "Citizenship applications and PR card renewals to help you build deeper roots in Canada." },
-      { num: "07", title: "Entrepreneur Immigration", desc: "BC PNP Entrepreneur stream, Federal Start-Up Visa (SUV), and more — ideal pathways for business-minded applicants ready to launch in Canada." },
-      { num: "08", title: "Investor Immigration", desc: "Assessment and application support for provincial nominee investor programs, helping high-net-worth applicants find the most efficient immigration route." },
-      { num: "09", title: "Express Entry", desc: "Canada's flagship skilled worker pathway. We assess your CRS score, develop score-boosting strategies, and manage your full application for permanent residence." },
+      { num: "01", title: "Refugee & Humanitarian", href: "/services/refugee-humanitarian", desc: "Professional support for asylum seekers and humanitarian protection applicants, safeguarding your safety and dignity." },
+      { num: "02", title: "Family Reunification", href: "/services/family-sponsorship", desc: "Sponsorship applications for spouses, children, and parents to bring your loved ones to Canada." },
+      { num: "03", title: "Immigration & Study", href: "/services/work-study-permit", desc: "Study permits, work permits, and PGWP applications to support your academic and career journey." },
+      { num: "04", title: "Tourism & Family Visits", href: "/services/visitor-visa", desc: "Visitor and tourist visa applications for Canada, the US, and Australia — professional document preparation to keep you connected with family." },
+      { num: "05", title: "Extensions & Renewals", href: "/services/status-extension", desc: "Status extensions, renewals, and complex case handling to maintain your legal status in Canada." },
+      { num: "06", title: "Citizenship & PR Card", href: "/services/citizenship-pr-card", desc: "Citizenship applications and PR card renewals to help you build deeper roots in Canada." },
+      { num: "07", title: "Entrepreneur Immigration", href: "/services/entrepreneur-immigration", desc: "BC PNP Entrepreneur stream, Federal Start-Up Visa (SUV), and more — ideal pathways for business-minded applicants ready to launch in Canada." },
+      { num: "08", title: "Investor Immigration", href: "/services/investor-immigration", desc: "Assessment and application support for provincial nominee investor programs, helping high-net-worth applicants find the most efficient immigration route." },
+      { num: "09", title: "Express Entry", href: "/services/express-entry", desc: "Canada's flagship skilled worker pathway. We assess your CRS score, develop score-boosting strategies, and manage your full application for permanent residence." },
     ],
     aboutTag: "About Us",
     aboutTitle: "JiaYang Immigration",
@@ -249,14 +250,22 @@ function Home() {
             <h2 className="font-display text-4xl md:text-5xl font-medium text-[#1B2B4E]">{tx.servicesTitle}</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {tx.services.map((s) => (
-              <div key={s.title} className="flex min-h-[16rem] flex-col rounded-2xl border border-[#DDE6F0] bg-white p-7 shadow-[0_14px_40px_rgba(16,33,59,0.05)] transition duration-300 hover:-translate-y-1 hover:border-[#C4873A]">
-                <p className="font-display text-3xl font-light text-[#C4873A] mb-4">{s.num}</p>
-                <h3 className="text-base font-medium text-[#1B2B4E] mb-3">{s.title}</h3>
-                <p className="text-[#5A6A82] text-sm leading-relaxed">{s.desc}</p>
-                <p className="mt-auto pt-6 text-[10px] uppercase tracking-[0.2em] text-[#C4873A]">{tx.serviceNote}</p>
-              </div>
-            ))}
+            {tx.services.map((s) => {
+              const card = (
+                <>
+                  <p className="font-display text-3xl font-light text-[#C4873A] mb-4">{s.num}</p>
+                  <h3 className="text-base font-medium text-[#1B2B4E] mb-3">{s.title}</h3>
+                  <p className="text-[#5A6A82] text-sm leading-relaxed">{s.desc}</p>
+                  <p className="mt-auto pt-6 text-[10px] uppercase tracking-[0.2em] text-[#C4873A]">{tx.serviceNote}</p>
+                </>
+              )
+
+              return (
+                <Link key={s.title} href={s.href} className="flex min-h-[16rem] flex-col rounded-2xl border border-[#DDE6F0] bg-white p-7 shadow-[0_14px_40px_rgba(16,33,59,0.05)] transition duration-300 hover:-translate-y-1 hover:border-[#C4873A]">
+                  {card}
+                </Link>
+              )
+            })}
           </div>
         </div>
       </section>
