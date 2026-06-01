@@ -24,6 +24,9 @@ const seoKeywords = [
   "Mandarin immigration services Richmond",
   "Cantonese immigration services Richmond",
   "Immigration consultation Richmond BC",
+  "RCIC immigration consultant Richmond BC",
+  "CICC regulated immigration consultant",
+  "licensed immigration consultant Richmond",
   "Immigration help Richmond BC",
   "Immigration service near Richmond BC",
   "Vancouver immigration services",
@@ -50,6 +53,10 @@ const seoKeywords = [
   "大温移民服务",
   "BC 省移民服务",
   "加拿大移民咨询",
+  "Richmond 持牌移民顾问",
+  "列治文持牌移民顾问",
+  "加拿大 RCIC 移民顾问",
+  "CICC 监管移民顾问",
   "加拿大移民申请",
   "加拿大 PR 申请",
   "加拿大永久居民申请",
@@ -71,8 +78,8 @@ const seoKeywords = [
 ]
 
 export const metadata: Metadata = {
-  title: "佳阳移民 | Richmond BC 移民服务与加拿大移民咨询 | JiaYang Immigration",
-  description: "佳阳移民位于 Richmond BC，提供中文、英文加拿大移民咨询与申请支持，涵盖 Express Entry、加拿大 PR、工签、学签、旅游签续签、家庭团聚、入籍和枫叶卡更新，服务列治文、大温哥华及境内外客户。",
+  title: "佳阳移民 | Richmond BC RCIC 持牌移民顾问 | JiaYang Immigration",
+  description: "佳阳移民位于 Richmond BC，是受 CICC 监管的 RCIC 持牌移民顾问团队，提供中文、英文加拿大移民咨询与申请支持，涵盖 Express Entry、加拿大 PR、工签、学签、旅游签续签、家庭团聚、入籍和枫叶卡更新，服务列治文、大温哥华及境内外客户。",
   metadataBase: new URL("https://jiayangimmigration.com"),
   verification: { google: "3DtVqQJdYiZJCdtgYp5ybZVFQPBLOzJ0w-XwCP75ctk" },
   keywords: [
@@ -92,8 +99,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "佳阳移民 | Richmond BC 移民服务与加拿大移民咨询 | JiaYang Immigration",
-    description: "Richmond BC 加拿大移民咨询与申请支持，提供家庭团聚、Express Entry、PR、工签、学签、旅游签续签、入籍和枫叶卡更新服务。首次咨询免费。",
+    title: "佳阳移民 | Richmond BC RCIC 持牌移民顾问 | JiaYang Immigration",
+    description: "Richmond BC RCIC 持牌移民顾问团队，受 CICC 监管，提供家庭团聚、Express Entry、PR、工签、学签、旅游签续签、入籍和枫叶卡更新服务。首次咨询免费。",
     url: "https://jiayangimmigration.com",
     siteName: "佳阳移民 JiaYang Immigration",
     locale: "zh_CN",
@@ -103,8 +110,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "佳阳移民 | Richmond BC 移民服务",
-    description: "Richmond BC 加拿大移民咨询，家庭团聚、Express Entry、PR、工签、学签。首次咨询免费。",
+    title: "佳阳移民 | Richmond BC RCIC 持牌移民顾问",
+    description: "Richmond BC RCIC 持牌移民顾问，家庭团聚、Express Entry、PR、工签、学签。首次咨询免费。",
     images: ["/logo.png"],
   },
 }
@@ -181,7 +188,7 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "Richmond 哪里可以做加拿大移民咨询？",
-      "acceptedAnswer": { "@type": "Answer", "text": "佳阳移民位于 Richmond BC 5599 Cooney Rd, Unit 2，提供中文和英文加拿大移民咨询与申请支持，服务列治文、大温哥华及境内外客户。" }
+      "acceptedAnswer": { "@type": "Answer", "text": "佳阳移民位于 Richmond BC 5599 Cooney Rd, Unit 2，是受 CICC 监管的 RCIC 持牌移民顾问团队，提供中文和英文加拿大移民咨询与申请支持，服务列治文、大温哥华及境内外客户。" }
     },
     {
       "@type": "Question",
@@ -205,7 +212,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "LegalService",
   "name": "佳阳移民 JiaYang Immigration",
-  "description": "加拿大持牌移民顾问公司，提供难民、家庭团聚、留学、旅游探亲、延期续签、入籍及枫叶卡更新等全面移民服务。",
+  "description": "Richmond BC RCIC 持牌移民顾问公司，受 CICC 监管，提供难民、家庭团聚、留学、旅游探亲、延期续签、入籍及枫叶卡更新等全面移民服务。",
   "url": "https://jiayangimmigration.com",
   "telephone": "+16042386686",
   "email": "jy.simon.ca@gmail.com",
