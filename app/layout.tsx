@@ -16,12 +16,67 @@ const lora = Lora({
   style: ["normal", "italic"],
 })
 
+const seoKeywords = [
+  "Richmond BC immigration services",
+  "Richmond immigration services",
+  "Canada immigration services Richmond",
+  "Chinese immigration services Richmond BC",
+  "Mandarin immigration services Richmond",
+  "Cantonese immigration services Richmond",
+  "Immigration consultation Richmond BC",
+  "Immigration help Richmond BC",
+  "Immigration service near Richmond BC",
+  "Vancouver immigration services",
+  "Greater Vancouver immigration services",
+  "BC immigration services",
+  "Canada immigration consultation",
+  "Immigrate to Canada consultation",
+  "Express Entry consultation Richmond",
+  "Express Entry help BC",
+  "Canada PR application help",
+  "Permanent residence application help",
+  "Study permit application help",
+  "Work permit application help",
+  "Visitor visa extension Canada",
+  "Family sponsorship Canada",
+  "Spousal sponsorship Canada",
+  "Parent sponsorship Canada",
+  "Canadian citizenship application help",
+  "Canada immigration document preparation",
+  "Richmond 移民服务",
+  "列治文移民服务",
+  "列治文加拿大移民咨询",
+  "温哥华移民服务",
+  "大温移民服务",
+  "BC 省移民服务",
+  "加拿大移民咨询",
+  "加拿大移民申请",
+  "加拿大 PR 申请",
+  "加拿大永久居民申请",
+  "加拿大快速通道申请",
+  "加拿大 Express Entry 咨询",
+  "加拿大工签申请",
+  "加拿大学签申请",
+  "加拿大旅游签续签",
+  "加拿大配偶团聚移民",
+  "加拿大父母团聚移民",
+  "加拿大入籍申请",
+  "加拿大移民材料准备",
+  "华人移民服务 Richmond",
+  "中文移民服务列治文",
+  "普通话移民咨询",
+  "粤语移民咨询",
+  "留学生移民加拿大",
+  "工签转 PR 加拿大",
+]
+
 export const metadata: Metadata = {
-  title: "佳阳移民 | Richmond RCIC 持牌移民顾问 | JiaYang Immigration",
-  description: "佳阳移民是 Richmond BC 持牌移民顾问（RCIC），提供家庭团聚、工签、学签、旅游签、入籍及枫叶卡更新等全面移民服务。专业可信赖。JiaYang Immigration — Licensed RCIC in Richmond BC offering family sponsorship, work permits, study permits, Express Entry, and more.",
+  title: "佳阳移民 | Richmond BC 移民服务与加拿大移民咨询 | JiaYang Immigration",
+  description: "佳阳移民位于 Richmond BC，提供中文、英文加拿大移民咨询与申请支持，涵盖 Express Entry、加拿大 PR、工签、学签、旅游签续签、家庭团聚、入籍和枫叶卡更新，服务列治文、大温哥华及境内外客户。",
   metadataBase: new URL("https://jiayangimmigration.com"),
   verification: { google: "3DtVqQJdYiZJCdtgYp5ybZVFQPBLOzJ0w-XwCP75ctk" },
   keywords: [
+    ...seoKeywords,
     "Richmond移民顾问", "RCIC", "持牌移民顾问", "家庭团聚", "配偶移民", "父母移民",
     "Express Entry", "快速通道", "工签", "学签", "枫叶卡", "入籍",
     "佳阳移民", "列治文移民", "大温哥华移民",
@@ -37,8 +92,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "佳阳移民 | Richmond RCIC 持牌移民顾问 | JiaYang Immigration",
-    description: "Richmond BC 持牌移民顾问，深耕大温哥华多年，提供家庭团聚、Express Entry、工签、学签等全面移民服务。首次咨询免费。Licensed RCIC serving Greater Vancouver.",
+    title: "佳阳移民 | Richmond BC 移民服务与加拿大移民咨询 | JiaYang Immigration",
+    description: "Richmond BC 加拿大移民咨询与申请支持，提供家庭团聚、Express Entry、PR、工签、学签、旅游签续签、入籍和枫叶卡更新服务。首次咨询免费。",
     url: "https://jiayangimmigration.com",
     siteName: "佳阳移民 JiaYang Immigration",
     locale: "zh_CN",
@@ -48,8 +103,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "佳阳移民 | Richmond RCIC 持牌移民顾问",
-    description: "Richmond BC 持牌移民顾问，家庭团聚、Express Entry、工签、学签。首次咨询免费。",
+    title: "佳阳移民 | Richmond BC 移民服务",
+    description: "Richmond BC 加拿大移民咨询，家庭团聚、Express Entry、PR、工签、学签。首次咨询免费。",
     images: ["/logo.png"],
   },
 }
@@ -122,6 +177,26 @@ const faqSchema = {
       "@type": "Question",
       "name": "Can I apply for Canadian immigration from China?",
       "acceptedAnswer": { "@type": "Answer", "text": "Yes. JiaYang Immigration serves clients both inside and outside Canada. Most communication is done via WeChat, phone, or email, and documents can be submitted electronically. Contact us at WeChat: Kris0214." }
+    },
+    {
+      "@type": "Question",
+      "name": "Richmond 哪里可以做加拿大移民咨询？",
+      "acceptedAnswer": { "@type": "Answer", "text": "佳阳移民位于 Richmond BC 5599 Cooney Rd, Unit 2，提供中文和英文加拿大移民咨询与申请支持，服务列治文、大温哥华及境内外客户。" }
+    },
+    {
+      "@type": "Question",
+      "name": "列治文华人移民服务可以中文沟通吗？",
+      "acceptedAnswer": { "@type": "Answer", "text": "可以。佳阳移民支持普通话、粤语和英文沟通，可通过电话、微信、邮件或预约到办公室咨询加拿大移民申请。" }
+    },
+    {
+      "@type": "Question",
+      "name": "加拿大工签可以怎么转 PR？",
+      "acceptedAnswer": { "@type": "Answer", "text": "工签转 PR 通常需要结合工作经验、语言成绩、学历、雇主支持、省提名或 Express Entry 分数评估。佳阳移民可帮助申请人先做路径评估，再规划材料准备。" }
+    },
+    {
+      "@type": "Question",
+      "name": "大温地区中文移民服务有哪些常见项目？",
+      "acceptedAnswer": { "@type": "Answer", "text": "常见项目包括 Express Entry、加拿大 PR 申请、工签、学签、旅游签续签、家庭团聚、配偶担保、父母团聚、入籍和枫叶卡更新。" }
     }
   ]
 }
@@ -142,7 +217,21 @@ const schema = {
     "postalCode": "V6X 3M6",
     "addressCountry": "CA"
   },
-  "areaServed": ["Richmond BC", "Vancouver", "Burnaby", "Surrey", "Canada"]
+  "areaServed": ["Richmond BC", "Vancouver", "Burnaby", "Surrey", "Coquitlam", "New Westminster", "Delta", "Greater Vancouver", "British Columbia", "Canada", "China"],
+  "knowsAbout": seoKeywords,
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Canada Immigration Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Express Entry consultation Richmond" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Canada PR application help" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Study permit application help" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Work permit application help" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Family sponsorship Canada" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Visitor visa extension Canada" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Canadian citizenship application help" } }
+    ]
+  }
 }
 
 export default function RootLayout({

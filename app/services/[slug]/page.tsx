@@ -10,6 +10,25 @@ type ServicePageProps = {
   params: Promise<{ slug: string }>
 }
 
+const localSeoKeywords = [
+  "Richmond BC immigration services",
+  "Chinese immigration services Richmond BC",
+  "Immigration consultation Richmond BC",
+  "Canada immigration services Richmond",
+  "Vancouver immigration services",
+  "Greater Vancouver immigration services",
+  "Canada PR application help",
+  "Permanent residence application help",
+  "Immigration help Richmond BC",
+  "列治文移民服务",
+  "Richmond 移民服务",
+  "温哥华移民服务",
+  "加拿大移民咨询",
+  "加拿大 PR 申请",
+  "中文移民服务列治文",
+  "华人移民服务 Richmond",
+]
+
 export function generateStaticParams() {
   return servicePages.map((service) => ({ slug: service.slug }))
 }
@@ -27,7 +46,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   return {
     title: service.metaTitle,
     description: service.description,
-    keywords: service.keywords,
+    keywords: [...service.keywords, ...localSeoKeywords],
     alternates: { canonical: url },
     openGraph: {
       title: service.metaTitle,
@@ -64,7 +83,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     description: service.description,
     url: serviceUrl,
     serviceType: service.titleEn,
-    areaServed: ["Richmond BC", "Greater Vancouver", "British Columbia", "Canada"],
+    areaServed: ["Richmond BC", "Vancouver", "Burnaby", "Surrey", "Coquitlam", "Greater Vancouver", "British Columbia", "Canada", "China"],
+    availableLanguage: ["zh-CN", "zh-Hant", "en-CA"],
+    audience: {
+      "@type": "Audience",
+      audienceType: "Chinese-speaking, English-speaking, local, and overseas Canadian immigration clients",
+    },
     provider: {
       "@type": "LegalService",
       name: "佳阳移民 JiaYang Immigration",
