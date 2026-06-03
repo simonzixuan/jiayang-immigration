@@ -41,14 +41,14 @@ export default function NewsSection() {
         <div className="grid gap-4 md:grid-cols-3">
           {news.map((item) => {
             const card = (
-              <div className="rounded-2xl border border-[#DDE6F0] bg-white p-7 shadow-[0_14px_40px_rgba(16,33,59,0.05)] transition hover:-translate-y-1 hover:border-[#C4873A]">
+              <div className="flex h-full flex-col rounded-2xl border border-[#DDE6F0] bg-white p-7 shadow-[0_14px_40px_rgba(16,33,59,0.05)] transition hover:-translate-y-1 hover:border-[#C4873A]">
                 <p className="mb-4 text-[10px] uppercase tracking-[0.2em] text-[#C4873A]">
                   {new Date(item.publishedAt).toLocaleDateString(lang === "zh" ? "zh-CN" : "en-CA", { year: "numeric", month: "long", day: "numeric" })}
                 </p>
                 <h3 className="mb-3 text-base font-medium leading-snug text-[#1B2B4E]">
                   {lang === "zh" ? item.title : (item.titleEn || item.title)}
                 </h3>
-                <p className="text-sm leading-relaxed text-[#5A6A82]">
+                <p className="flex-1 text-sm leading-relaxed text-[#5A6A82]">
                   {lang === "zh" ? item.summary : (item.summaryEn || item.summary)}
                 </p>
                 {item.slug?.current && (
@@ -59,9 +59,9 @@ export default function NewsSection() {
               </div>
             )
             return item.slug?.current ? (
-              <Link key={item._id} href={`/blog/${item.slug.current}`}>{card}</Link>
+              <Link key={item._id} href={`/blog/${item.slug.current}`} className="h-full">{card}</Link>
             ) : (
-              <div key={item._id}>{card}</div>
+              <div key={item._id} className="h-full">{card}</div>
             )
           })}
         </div>
