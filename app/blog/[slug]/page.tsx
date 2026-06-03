@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"
+
 import { client } from "../../../lib/sanity"
 import { PortableText } from "next-sanity"
 import { notFound } from "next/navigation"
