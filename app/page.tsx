@@ -19,6 +19,11 @@ const t = {
     heroDesc: "佳阳移民深耕大温哥华列治文移民领域10年+，为华人及各族裔客户提供全面专业的移民服务。",
     heroBtn: "立即免费咨询",
     heroBtn2: "查看服务",
+    heroMiniName: "您的姓名",
+    heroMiniPhone: "联系电话",
+    heroMiniService: "咨询类型",
+    heroMiniBtn: "免费获取评估",
+    heroMiniSuccess: "收到！顾问会尽快联系您。",
     trustItems: ["Richmond 办公室", "中英双语沟通", "首次咨询免费"],
     servicesTag: "服务范围",
     servicesTitle: "全方位移民服务",
@@ -101,6 +106,11 @@ const t = {
     heroDesc: "JiaYang Immigration is a Richmond BC RCIC licensed firm, serving Chinese and multicultural clients across Greater Vancouver for 10+ years with expertise and care.",
     heroBtn: "Free Consultation",
     heroBtn2: "Our Services",
+    heroMiniName: "Your Name",
+    heroMiniPhone: "Phone Number",
+    heroMiniService: "Service Type",
+    heroMiniBtn: "Free Assessment",
+    heroMiniSuccess: "Received! A consultant will contact you shortly.",
     trustItems: ["Richmond office", "Chinese & English support", "Free initial consultation"],
     servicesTag: "Services",
     servicesTitle: "Comprehensive Immigration Services",
@@ -182,7 +192,20 @@ function Home() {
   const { lang } = useLang()
   const tx = t[lang]
   const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle")
+  const [heroFormState, setHeroFormState] = useState<"idle" | "submitting" | "success">("idle")
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+
+  async function handleHeroSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setHeroFormState("submitting")
+    const data = new FormData(e.currentTarget)
+    const res = await fetch("https://formspree.io/f/xpqbkzdy", {
+      method: "POST",
+      body: data,
+      headers: { Accept: "application/json" },
+    })
+    setHeroFormState(res.ok ? "success" : "idle")
+  }
 
   async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -219,14 +242,31 @@ function Home() {
               </span>
             ))}
           </div>
-          <div className="flex flex-wrap gap-4">
-            <a href="#contact" className="inline-flex h-[3.25rem] items-center justify-center rounded-full bg-[#C4873A] text-white px-8 text-[11px] tracking-[0.26em] uppercase shadow-[0_22px_44px_rgba(196,135,58,0.34)] hover:bg-[#A06A20] transition-colors">
-              {tx.heroBtn}
-            </a>
-            <a href="#services" className="inline-flex h-[3.25rem] items-center justify-center rounded-full border border-[#C7D2E0] bg-white/78 text-[#10213B] px-8 text-[11px] tracking-[0.26em] uppercase hover:border-[#10213B] transition-colors">
-              {tx.heroBtn2}
-            </a>
-          </div>
+          {heroFormState === "success" ? (
+            <div className="flex items-center gap-3 rounded-2xl border border-[#C4873A]/40 bg-white/80 px-6 py-4 backdrop-blur">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#C4873A] text-white text-sm">✓</span>
+              <p className="text-sm font-medium text-[#10213B]">{tx.heroMiniSuccess}</p>
+            </div>
+          ) : (
+            <form onSubmit={handleHeroSubmit} className="w-full max-w-xl">
+              <div className="flex flex-col gap-2 sm:flex-row">
+                <input required type="text" name="name" placeholder={tx.heroMiniName} className="h-12 flex-1 rounded-full border border-[#C7D2E0] bg-white/90 px-5 text-sm text-[#10213B] placeholder-[#9AAAB8] outline-none backdrop-blur focus:border-[#C4873A]" />
+                <input required type="tel" name="phone" placeholder={tx.heroMiniPhone} className="h-12 flex-1 rounded-full border border-[#C7D2E0] bg-white/90 px-5 text-sm text-[#10213B] placeholder-[#9AAAB8] outline-none backdrop-blur focus:border-[#C4873A]" />
+              </div>
+              <div className="mt-2 flex flex-col gap-2 sm:flex-row">
+                <select required name="service" className="h-12 flex-1 rounded-full border border-[#C7D2E0] bg-white/90 px-5 text-sm text-[#10213B] outline-none backdrop-blur focus:border-[#C4873A]">
+                  <option value="">{tx.heroMiniService}</option>
+                  {tx.services.map(s => <option key={s.title} value={s.title}>{s.title}</option>)}
+                </select>
+                <button type="submit" disabled={heroFormState === "submitting"} className="h-12 shrink-0 rounded-full bg-[#C4873A] px-7 text-[11px] uppercase tracking-[0.24em] text-white shadow-[0_16px_36px_rgba(196,135,58,0.32)] transition-colors hover:bg-[#A06A20] disabled:opacity-60">
+                  {heroFormState === "submitting" ? "..." : tx.heroMiniBtn}
+                </button>
+              </div>
+              <p className="mt-3 text-[11px] text-[#7A8FA6]">
+                {lang === "zh" ? "首次咨询免费 · 提交后顾问会主动联系" : "Free initial consultation · We'll reach out after submission"}
+              </p>
+            </form>
+          )}
         </div>
       </section>
 
@@ -447,7 +487,7 @@ function Home() {
                 <option value="">{tx.formService}</option>
                 {tx.services.map(s => <option key={s.title} value={s.title}>{s.title}</option>)}
               </select>
-              <textarea required name="message" rows={5} placeholder={tx.formMsg} className="w-full resize-none rounded-2xl border border-[#314765] bg-white/[0.06] px-4 py-3 text-sm text-white placeholder-[#7F91AA] outline-none transition-colors focus:border-[#C4873A]" />
+              <textarea name="message" rows={5} placeholder={tx.formMsg} className="w-full resize-none rounded-2xl border border-[#314765] bg-white/[0.06] px-4 py-3 text-sm text-white placeholder-[#7F91AA] outline-none transition-colors focus:border-[#C4873A]" />
               {formState === "error" && (
                 <p className="text-sm text-red-300">{tx.formError}</p>
               )}
