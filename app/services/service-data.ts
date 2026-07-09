@@ -11,6 +11,11 @@ export type ServicePage = {
   summaryEn: string
   idealFor: string[]
   support: string[]
+  requirements?: string[]
+  documents?: string[]
+  risks?: string[]
+  timeline?: string[]
+  rcicValue?: string[]
   faqs: { q: string; a: string }[]
 }
 
@@ -179,6 +184,11 @@ export const servicePages: ServicePage[] = [
     summaryEn: "Support for Canadian spousal sponsorship applications, including inland and outland pathways and relationship evidence planning.",
     idealFor: ["加拿大公民或永久居民担保配偶", "需要准备关系证明材料", "想判断境内或境外递交更合适"],
     support: ["担保人资格初步评估", "境内/境外路径比较", "关系证明材料清单", "表格准备和递交后跟进"],
+    requirements: ["担保人通常需为加拿大公民或永久居民", "婚姻或伴侣关系需要真实、持续且可证明", "申请人和担保人需符合基本身份和背景要求"],
+    documents: ["结婚证或伴侣关系证明", "双方身份证明和护照资料", "合照、聊天记录、共同居住或财务往来证明", "担保人身份、收入或居住相关材料"],
+    risks: ["关系证明不足导致真实性被质疑", "境内、境外路径选择不合适影响安排", "表格信息不一致或材料时间线混乱", "曾有拒签、离婚或复杂关系背景未充分解释"],
+    timeline: ["先确认担保人资格和递交路径", "整理关系时间线和核心证明材料", "准备表格、翻译和支持文件", "递交后跟进补件、体检或背景审查要求"],
+    rcicValue: ["协助判断 Inland 或 Outland 路径", "帮助关系证明形成清晰叙事", "提前发现材料矛盾和薄弱点", "在补件或拒签后提供下一步策略"],
     faqs: [
       { q: "配偶团聚移民通常需要多久？", a: "常见处理时间约为 12 到 18 个月，实际会受递交方式、材料完整度和移民局进度影响。" },
       { q: "境内和境外配偶担保有什么区别？", a: "两者在递交位置、申请人是否在加拿大、工签安排和流程细节上不同，建议先按身份和旅行计划评估。" },
@@ -198,6 +208,11 @@ export const servicePages: ServicePage[] = [
     summaryEn: "Guidance for parent and grandparent sponsorship, income review, document planning, and alternative family visit pathways.",
     idealFor: ["想担保父母或祖父母移民", "需要确认担保收入是否达标", "想比较团聚担保和超级签证"],
     support: ["担保人收入和家庭人数初评", "申请资格和时间线说明", "材料清单准备", "超级签证替代路径建议"],
+    requirements: ["担保人需符合身份、居住和收入要求", "家庭人数和收入门槛需要按官方规则核对", "父母或祖父母需满足体检、背景等基本要求"],
+    documents: ["担保人身份证明和税务收入资料", "家庭成员关系证明", "父母或祖父母护照和身份文件", "体检、无犯罪或补件所需文件"],
+    risks: ["收入年份或家庭人数计算错误", "项目未开放时误判递交时机", "父母健康、背景或材料翻译问题", "把超级签证和永久居民担保混为一谈"],
+    timeline: ["先核对担保人收入和家庭人数", "确认当期项目是否开放及递交流程", "准备关系、收入和身份材料", "递交后跟进抽签、邀请、补件或审理进度"],
+    rcicValue: ["协助核对收入门槛和家庭人数", "比较父母团聚与超级签证路径", "提前整理未来开放时可用材料", "降低材料遗漏和时间误判风险"],
     faqs: [
       { q: "父母团聚一定可以随时递交吗？", a: "不一定。父母和祖父母担保项目通常受官方开放安排影响，需要根据当期政策判断是否可递交。" },
       { q: "收入不够还能担保父母吗？", a: "收入要求是关键条件之一。如果暂时不满足，可以评估共同签署人、等待下一年收入或超级签证等路径。" },
@@ -217,6 +232,11 @@ export const servicePages: ServicePage[] = [
     summaryEn: "Study permit support for students, including study plans, financial proof, refusal review, and document preparation.",
     idealFor: ["准备申请加拿大学签", "需要完善学习计划和资金材料", "学签被拒后想重新申请"],
     support: ["学习计划方向建议", "资金证明材料梳理", "申请表格和文件检查", "拒签原因初步分析"],
+    requirements: ["需要有效录取信和合理学习目的", "资金需覆盖学费、生活费和相关开支", "学习计划要与过往背景和未来安排相匹配"],
+    documents: ["学校录取信", "学习计划和个人说明", "资金证明、收入来源和存款历史", "学历、成绩、工作或家庭约束力材料"],
+    risks: ["学习计划空泛或与背景不匹配", "资金来源解释不足", "大龄、转专业或倒读未说明清楚", "拒签后未针对原因补强就再次递交"],
+    timeline: ["先确认学校、项目和入学时间", "整理学习计划、资金和身份材料", "递交后跟进生物识别、体检或补件", "获批后规划入境和后续身份安排"],
+    rcicValue: ["帮助学习计划更贴合个人背景", "梳理资金来源和证明逻辑", "分析拒签原因并制定补强方向", "提醒后续工签和 PR 规划节点"],
     faqs: [
       { q: "学签最重要的材料是什么？", a: "通常包括录取信、学习计划、资金证明、身份文件和与申请人背景匹配的解释材料。" },
       { q: "学签被拒后可以马上再申请吗？", a: "可以重新申请，但重点是先分析拒签原因，再补强材料，而不是简单重复递交。" },
@@ -236,6 +256,11 @@ export const servicePages: ServicePage[] = [
     summaryEn: "Work permit guidance including permit category review, employer-supported documents, renewals, and PR pathway planning.",
     idealFor: ["需要申请或续签加拿大工签", "有雇主支持或 LMIA 相关问题", "想了解工签转 PR 路径"],
     support: ["工签类别初步判断", "雇主材料方向说明", "身份衔接时间线", "PR 路径初步规划"],
+    requirements: ["需先确认适用的工签类别", "雇主支持、职位和申请人背景需匹配", "当前身份和递交时间会影响是否能合法衔接"],
+    documents: ["护照和当前身份证明", "雇主信、雇佣合同或 LMIA 相关材料", "学历、工作经验和资格证明", "配偶或家庭成员相关支持文件"],
+    risks: ["工签类别选错导致材料方向错误", "雇主文件不完整或职位描述不清", "身份快过期才准备导致衔接风险", "忽略后续 PR 路径和工作经验要求"],
+    timeline: ["先判断工签类别和身份截止日", "确认雇主材料和申请人资格", "准备递交文件并规划身份衔接", "获批后继续评估 PR 或续签方向"],
+    rcicValue: ["判断开放工签、雇主支持工签等路径", "帮助雇主和申请人材料保持一致", "规划续签、转换身份和 PR 节点", "处理过期、补件或复杂背景问题"],
     faqs: [
       { q: "加拿大工签有哪些常见类型？", a: "常见包括雇主支持类工签、开放工签、配偶工签、毕业工签等，具体要按申请人背景判断。" },
       { q: "工签快到期怎么办？", a: "建议尽早评估续签或转换身份路径，避免临近到期才发现材料或资格不足。" },
@@ -255,6 +280,11 @@ export const servicePages: ServicePage[] = [
     summaryEn: "PGWP support for international graduates, including application timing, document planning, and PR pathway transition.",
     idealFor: ["即将毕业的加拿大留学生", "需要申请 PGWP", "想用毕业工签规划 PR"],
     support: ["毕业工签资格初评", "申请时间窗口提醒", "毕业文件和身份材料检查", "后续 PR 路径建议"],
+    requirements: ["需确认学校和项目是否符合 PGWP 要求", "递交时间需落在官方规定窗口内", "学习状态、课程长度和毕业文件会影响申请结果"],
+    documents: ["毕业确认信或完成课程证明", "最终成绩单", "护照和当前学签资料", "过往学习记录和身份文件"],
+    risks: ["错过申请时间窗口", "学校或课程不符合 PGWP 要求", "毕业前后工作权限判断错误", "PGWP 长度和后续 PR 时间规划不足"],
+    timeline: ["毕业前确认资格和关键日期", "拿到毕业文件后准备递交", "递交后确认工作权限和身份状态", "获批后规划 CEC、省提名或其他 PR 路径"],
+    rcicValue: ["提前判断 PGWP 资格和时间窗口", "避免毕业后身份衔接失误", "结合工作和语言规划 PR", "处理过期、拒签或特殊学习记录情况"],
     faqs: [
       { q: "PGWP 什么时候申请？", a: "通常需要在符合条件的毕业文件出具后，在规定时间窗口内递交，建议毕业前先确认材料。" },
       { q: "毕业工签长度怎么判断？", a: "通常与课程长度和学校资格有关，具体需要结合学习项目和官方规则判断。" },
@@ -274,6 +304,11 @@ export const servicePages: ServicePage[] = [
     summaryEn: "PR card renewal support including residency obligation review, travel history organization, and document preparation.",
     idealFor: ["枫叶卡即将到期或已过期", "旅行记录复杂", "需要确认是否满足居住义务"],
     support: ["居住天数初步核对", "旅行记录整理", "续卡材料清单", "复杂情况风险提示"],
+    requirements: ["申请人需为加拿大永久居民", "通常需核对过去一段时间内的居住义务", "旅行记录和护照信息需要尽量完整一致"],
+    documents: ["枫叶卡和护照资料", "出入境、旅行和居住记录", "在加拿大居住、工作、报税或学习证明", "特殊情况说明和支持文件"],
+    risks: ["居住天数计算错误", "旅行记录遗漏或与护照不一致", "人在境外时误用境内续卡逻辑", "居住义务不足未提前评估风险"],
+    timeline: ["先整理旅行记录和护照页", "核对居住义务和可能风险", "准备续卡材料和照片", "递交后跟进补件或取卡安排"],
+    rcicValue: ["帮助核对复杂旅行记录", "判断是否满足居住义务", "提示境外 PRTD 或其他安排", "减少因材料矛盾导致的延误"],
     faqs: [
       { q: "枫叶卡过期还能续吗？", a: "枫叶卡过期不代表自动失去永久居民身份，但续卡前需要看居住义务和旅行记录。" },
       { q: "人在加拿大境外怎么办？", a: "境外情况可能涉及 PRTD 或其他安排，建议先确认所在地、旅行计划和居住义务。" },
@@ -293,6 +328,11 @@ export const servicePages: ServicePage[] = [
     summaryEn: "Citizenship application support including physical presence review, travel history, identity documents, and application preparation.",
     idealFor: ["准备申请加拿大入籍", "需要核对居住时间", "旅行记录或身份文件较复杂"],
     support: ["居住时间初步核算", "旅行记录整理", "入籍材料清单", "递交前文件检查"],
+    requirements: ["需满足加拿大入籍的实际居住时间要求", "需准备身份、语言或其他官方要求材料", "旅行记录需准确反映离境和返加时间"],
+    documents: ["永久居民身份证明", "护照和旅行记录", "语言、学历或豁免相关材料", "报税、居住或身份支持文件"],
+    risks: ["实际居住天数计算错误", "旅行记录遗漏影响资格判断", "语言或身份材料不符合要求", "过早递交导致不满足申请条件"],
+    timeline: ["先核算实际居住天数", "整理旅行、身份和语言材料", "递交前检查表格和证明文件", "递交后跟进入籍考试、面试或宣誓安排"],
+    rcicValue: ["协助核算居住时间和旅行记录", "检查申请材料是否完整一致", "提示可能影响资格的特殊情况", "帮助申请人减少退件或延误风险"],
     faqs: [
       { q: "加拿大入籍需要住满多久？", a: "通常需要满足官方规定的实际居住时间要求，并结合申请前的时间范围计算。" },
       { q: "旅行很多会影响入籍吗？", a: "频繁旅行本身不一定影响，但需要准确计算在加拿大实际居住天数并准备记录。" },

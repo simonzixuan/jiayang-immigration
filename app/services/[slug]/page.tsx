@@ -98,6 +98,13 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const relatedServices = (relatedServiceSlugs[service.slug] ?? [])
     .map((relatedSlug) => getServicePage(relatedSlug))
     .filter((item): item is NonNullable<typeof item> => Boolean(item))
+  const detailSections = [
+    { title: "申请条件", items: service.requirements },
+    { title: "常见材料", items: service.documents },
+    { title: "常见风险点", items: service.risks },
+    { title: "处理流程", items: service.timeline },
+    { title: "为什么找 RCIC 顾问", items: service.rcicValue },
+  ].filter((section): section is { title: string; items: string[] } => Boolean(section.items?.length))
 
   const serviceUrl = `${siteUrl}/services/${service.slug}`
   const serviceSchema = {
@@ -223,6 +230,27 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   ))}
                 </div>
               </section>
+
+              {detailSections.length > 0 && (
+                <section className="rounded-[2rem] border border-[#DDE6F0] bg-white p-7 shadow-[0_16px_44px_rgba(16,33,59,0.06)] sm:p-9">
+                  <h2 className="mb-6 font-display text-3xl font-medium text-[#10213B]">申请重点</h2>
+                  <div className="grid gap-5 lg:grid-cols-2">
+                    {detailSections.map((section) => (
+                      <div key={section.title} className="rounded-2xl border border-[#E6EDF5] bg-[#F7F9FC] p-5">
+                        <h3 className="mb-4 text-base font-medium text-[#10213B]">{section.title}</h3>
+                        <ul className="space-y-3">
+                          {section.items.map((item) => (
+                            <li key={item} className="flex gap-3 text-sm leading-relaxed text-[#52647C]">
+                              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C4873A]" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
 
               {relatedServices.length > 0 && (
                 <section className="rounded-[2rem] border border-[#DDE6F0] bg-white p-7 shadow-[0_16px_44px_rgba(16,33,59,0.06)] sm:p-9">
