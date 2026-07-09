@@ -2,7 +2,7 @@ import { MetadataRoute } from "next"
 import { servicePages, siteUrl } from "./services/service-data"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date("2026-05-29")
+  const now = new Date("2026-07-09")
 
   return [
     { url: siteUrl, lastModified: now, changeFrequency: "weekly", priority: 1 },

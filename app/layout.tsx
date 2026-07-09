@@ -78,8 +78,8 @@ const seoKeywords = [
 ]
 
 export const metadata: Metadata = {
-  title: "佳阳移民 | Richmond BC RCIC 持牌移民顾问 | JiaYang Immigration",
-  description: "佳阳移民位于 Richmond BC，是受 CICC 监管的 RCIC 持牌移民顾问团队，提供中文、英文加拿大移民咨询与申请支持，涵盖 Express Entry、加拿大 PR、工签、学签、旅游签续签、家庭团聚、入籍和枫叶卡更新，服务列治文、大温哥华及境内外客户。",
+  title: "Richmond 持牌移民顾问 RCIC | 佳阳移民 | 首次咨询免费",
+  description: "佳阳移民位于 Richmond BC，由加拿大持牌 RCIC 顾问提供配偶团聚、父母团聚、学签、工签、PR、入籍和枫叶卡更新服务。中英双语沟通，首次咨询免费。",
   metadataBase: new URL("https://jiayangimmigration.com"),
   verification: { google: "3DtVqQJdYiZJCdtgYp5ybZVFQPBLOzJ0w-XwCP75ctk" },
   keywords: [
@@ -99,8 +99,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "佳阳移民 | Richmond BC RCIC 持牌移民顾问 | JiaYang Immigration",
-    description: "Richmond BC RCIC 持牌移民顾问团队，受 CICC 监管，提供家庭团聚、Express Entry、PR、工签、学签、旅游签续签、入籍和枫叶卡更新服务。首次咨询免费。",
+    title: "Richmond 持牌移民顾问 RCIC | 佳阳移民 | 首次咨询免费",
+    description: "Richmond BC RCIC 持牌移民顾问，提供配偶团聚、父母团聚、学签、工签、Express Entry、入籍和枫叶卡更新服务。中英双语，首次咨询免费。",
     url: "https://jiayangimmigration.com",
     siteName: "佳阳移民 JiaYang Immigration",
     locale: "zh_CN",
@@ -110,8 +110,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "佳阳移民 | Richmond BC RCIC 持牌移民顾问",
-    description: "Richmond BC RCIC 持牌移民顾问，家庭团聚、Express Entry、PR、工签、学签。首次咨询免费。",
+    title: "Richmond 持牌移民顾问 RCIC | 佳阳移民",
+    description: "配偶团聚、父母团聚、学签、工签、PR、入籍和枫叶卡更新。首次咨询免费。",
     images: ["/logo.png"],
   },
 }

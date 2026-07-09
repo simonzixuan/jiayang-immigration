@@ -30,11 +30,11 @@ const t = {
     serviceNote: "免费评估 · 查看详情",
     services: [
       { num: "01", title: "难民与人道主义", href: "/services/refugee-humanitarian", desc: "为需要庇护和人道主义保护的申请人提供专业支持，守护您的安全与尊严。" },
-      { num: "02", title: "家庭团聚", href: "/services/family-sponsorship", desc: "协助配偶、子女及父母移民申请，让家人早日团聚，共享天伦之乐。" },
-      { num: "03", title: "移民与留学", href: "/services/work-study-permit", desc: "学习签证、工作许可、毕业生工签，为您的学业与职业发展保驾护航。" },
+      { num: "02", title: "配偶团聚移民", href: "/services/spousal-sponsorship", desc: "协助境内、境外配偶担保申请，梳理关系证明、担保资格和递交流程。", links: [{ label: "配偶团聚", href: "/services/spousal-sponsorship" }, { label: "父母团聚", href: "/services/parent-sponsorship" }] },
+      { num: "03", title: "学签与工签", href: "/services/study-permit", desc: "加拿大学签、工签和毕业工签申请支持，为学业、工作和身份衔接提前规划。", links: [{ label: "学签申请", href: "/services/study-permit" }, { label: "工签申请", href: "/services/work-permit" }, { label: "PGWP", href: "/services/pgwp" }] },
       { num: "04", title: "旅游与探亲", href: "/services/visitor-visa", desc: "加拿大、美国、澳大利亚旅游及探亲签证申请，专业备材，让您轻松往来，与家人保持联系。" },
       { num: "05", title: "延期与续签", href: "/services/status-extension", desc: "身份延期、续签及各类疑难案件处理，维护您在加拿大的合法身份。" },
-      { num: "06", title: "入籍与枫叶卡", href: "/services/citizenship-pr-card", desc: "加拿大入籍申请及永久居民卡更新，助您深根加拿大，开创新篇章。" },
+      { num: "06", title: "枫叶卡更新", href: "/services/pr-card-renewal", desc: "加拿大永久居民卡更新、居住义务核对和旅行记录整理，降低材料风险。", links: [{ label: "枫叶卡更新", href: "/services/pr-card-renewal" }, { label: "入籍申请", href: "/services/citizenship" }] },
       { num: "07", title: "企业家移民", href: "/services/entrepreneur-immigration", desc: "BC省企业家移民、联邦创业签证（SUV）等项目，助有创业意向的您在加拿大落地生根。" },
       { num: "08", title: "投资移民", href: "/services/investor-immigration", desc: "省提名投资类项目评估与申请，为具备资产实力的申请人规划最优移民路径。" },
       { num: "09", title: "快速通道 Express Entry", href: "/services/express-entry", desc: "联邦技术移民主流路径，综合评分（CRS）评估、提分策略及全程申请，助您高效获得永居身份。" },
@@ -117,11 +117,11 @@ const t = {
     serviceNote: "Free assessment · Details",
     services: [
       { num: "01", title: "Refugee & Humanitarian", href: "/services/refugee-humanitarian", desc: "Professional support for asylum seekers and humanitarian protection applicants, safeguarding your safety and dignity." },
-      { num: "02", title: "Family Reunification", href: "/services/family-sponsorship", desc: "Sponsorship applications for spouses, children, and parents to bring your loved ones to Canada." },
-      { num: "03", title: "Immigration & Study", href: "/services/work-study-permit", desc: "Study permits, work permits, and PGWP applications to support your academic and career journey." },
+      { num: "02", title: "Spousal Sponsorship", href: "/services/spousal-sponsorship", desc: "Inland and outland spousal sponsorship support, including relationship evidence and sponsor eligibility review.", links: [{ label: "Spousal", href: "/services/spousal-sponsorship" }, { label: "Parents", href: "/services/parent-sponsorship" }] },
+      { num: "03", title: "Study & Work Permits", href: "/services/study-permit", desc: "Study permit, work permit, and PGWP support to plan your education, career, and immigration pathway.", links: [{ label: "Study Permit", href: "/services/study-permit" }, { label: "Work Permit", href: "/services/work-permit" }, { label: "PGWP", href: "/services/pgwp" }] },
       { num: "04", title: "Tourism & Family Visits", href: "/services/visitor-visa", desc: "Visitor and tourist visa applications for Canada, the US, and Australia — professional document preparation to keep you connected with family." },
       { num: "05", title: "Extensions & Renewals", href: "/services/status-extension", desc: "Status extensions, renewals, and complex case handling to maintain your legal status in Canada." },
-      { num: "06", title: "Citizenship & PR Card", href: "/services/citizenship-pr-card", desc: "Citizenship applications and PR card renewals to help you build deeper roots in Canada." },
+      { num: "06", title: "PR Card Renewal", href: "/services/pr-card-renewal", desc: "PR card renewal support, residency obligation review, and travel history organization for permanent residents.", links: [{ label: "PR Card", href: "/services/pr-card-renewal" }, { label: "Citizenship", href: "/services/citizenship" }] },
       { num: "07", title: "Entrepreneur Immigration", href: "/services/entrepreneur-immigration", desc: "BC PNP Entrepreneur stream, Federal Start-Up Visa (SUV), and more — ideal pathways for business-minded applicants ready to launch in Canada." },
       { num: "08", title: "Investor Immigration", href: "/services/investor-immigration", desc: "Assessment and application support for provincial nominee investor programs, helping high-net-worth applicants find the most efficient immigration route." },
       { num: "09", title: "Express Entry", href: "/services/express-entry", desc: "Canada's flagship skilled worker pathway. We assess your CRS score, develop score-boosting strategies, and manage your full application for permanent residence." },
@@ -294,22 +294,29 @@ function Home() {
             <h2 className="font-display text-4xl md:text-5xl font-medium text-[#1B2B4E]">{tx.servicesTitle}</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {tx.services.map((s) => {
-              const card = (
-                <>
-                  <p className="font-display text-3xl font-light text-[#C4873A] mb-4">{s.num}</p>
-                  <h3 className="text-base font-medium text-[#1B2B4E] mb-3">{s.title}</h3>
-                  <p className="text-[#5A6A82] text-sm leading-relaxed">{s.desc}</p>
-                  <p className="mt-auto pt-6 text-[10px] uppercase tracking-[0.2em] text-[#C4873A]">{tx.serviceNote}</p>
-                </>
-              )
-
-              return (
-                <Link key={s.title} href={s.href} className="flex min-h-[16rem] flex-col rounded-2xl border border-[#DDE6F0] bg-white p-7 shadow-[0_14px_40px_rgba(16,33,59,0.05)] transition duration-300 hover:-translate-y-1 hover:border-[#C4873A]">
-                  {card}
+            {tx.services.map((s) => (
+              <article key={s.title} className="flex min-h-[16rem] flex-col rounded-2xl border border-[#DDE6F0] bg-white p-7 shadow-[0_14px_40px_rgba(16,33,59,0.05)] transition duration-300 hover:-translate-y-1 hover:border-[#C4873A]">
+                <p className="font-display text-3xl font-light text-[#C4873A] mb-4">{s.num}</p>
+                <h3 className="mb-3 text-base font-medium text-[#1B2B4E]">
+                  <Link href={s.href} className="transition-colors hover:text-[#C4873A]">
+                    {s.title}
+                  </Link>
+                </h3>
+                <p className="text-[#5A6A82] text-sm leading-relaxed">{s.desc}</p>
+                {"links" in s && s.links && (
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {s.links.map((link) => (
+                      <Link key={link.href} href={link.href} className="rounded-full border border-[#DDE6F0] px-3 py-1 text-[10px] uppercase tracking-[0.12em] text-[#52647C] transition-colors hover:border-[#C4873A] hover:text-[#C4873A]">
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+                <Link href={s.href} className="mt-auto pt-6 text-[10px] uppercase tracking-[0.2em] text-[#C4873A] transition-colors hover:text-[#9B6727]">
+                  {tx.serviceNote}
                 </Link>
-              )
-            })}
+              </article>
+            ))}
           </div>
         </div>
       </section>

@@ -36,6 +36,19 @@ const localSeoKeywords = [
   "华人移民服务 Richmond",
 ]
 
+const relatedServiceSlugs: Record<string, string[]> = {
+  "family-sponsorship": ["spousal-sponsorship", "parent-sponsorship"],
+  "spousal-sponsorship": ["family-sponsorship", "parent-sponsorship"],
+  "parent-sponsorship": ["family-sponsorship", "spousal-sponsorship", "visitor-visa"],
+  "work-study-permit": ["study-permit", "work-permit", "pgwp"],
+  "study-permit": ["work-study-permit", "pgwp", "work-permit"],
+  "work-permit": ["work-study-permit", "pgwp", "express-entry"],
+  "pgwp": ["study-permit", "work-permit", "express-entry"],
+  "citizenship-pr-card": ["pr-card-renewal", "citizenship"],
+  "pr-card-renewal": ["citizenship-pr-card", "citizenship"],
+  "citizenship": ["citizenship-pr-card", "pr-card-renewal"],
+}
+
 export function generateStaticParams() {
   return servicePages.map((service) => ({ slug: service.slug }))
 }
@@ -81,6 +94,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   if (!service) {
     notFound()
   }
+
+  const relatedServices = (relatedServiceSlugs[service.slug] ?? [])
+    .map((relatedSlug) => getServicePage(relatedSlug))
+    .filter((item): item is NonNullable<typeof item> => Boolean(item))
 
   const serviceUrl = `${siteUrl}/services/${service.slug}`
   const serviceSchema = {
@@ -206,6 +223,24 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   ))}
                 </div>
               </section>
+
+              {relatedServices.length > 0 && (
+                <section className="rounded-[2rem] border border-[#DDE6F0] bg-white p-7 shadow-[0_16px_44px_rgba(16,33,59,0.06)] sm:p-9">
+                  <h2 className="mb-6 font-display text-3xl font-medium text-[#10213B]">相关服务</h2>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    {relatedServices.map((item) => (
+                      <Link
+                        key={item.slug}
+                        href={`/services/${item.slug}`}
+                        className="rounded-2xl border border-[#E6EDF5] p-4 transition-colors hover:border-[#C4873A]"
+                      >
+                        <h3 className="mb-2 text-base font-medium text-[#10213B]">{item.title}</h3>
+                        <p className="text-sm leading-relaxed text-[#52647C]">{item.summary}</p>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
 
               <section className="rounded-[2rem] border border-[#DDE6F0] bg-white p-7 shadow-[0_16px_44px_rgba(16,33,59,0.06)] sm:p-9">
                 <h2 className="mb-6 font-display text-3xl font-medium text-[#10213B]">常见问题</h2>

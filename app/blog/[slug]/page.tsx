@@ -64,12 +64,12 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="mt-16 rounded-2xl bg-[#F7F9FC] p-8 text-center">
           <h2 className="mb-3 text-xl font-medium text-[#1B2B4E]">需要专业移民咨询？</h2>
           <p className="mb-6 text-[#5A6A82]">佳阳移民提供免费初步咨询，RCIC持牌顾问为您解答。</p>
-          <a
+          <Link
             href="/#contact"
             className="inline-block rounded-full bg-[#C4873A] px-8 py-3 text-sm font-medium text-white hover:bg-[#9B6727] transition"
           >
             立即预约免费咨询
-          </a>
+          </Link>
         </div>
       </div>
     </main>
