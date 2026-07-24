@@ -106,13 +106,13 @@ export const metadata: Metadata = {
     locale: "zh_CN",
     alternateLocale: ["en_CA"],
     type: "website",
-    images: [{ url: "/logo.png", width: 512, height: 512, alt: "佳阳移民 JiaYang Immigration" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "佳阳移民 JiaYang Immigration" }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Richmond 持牌移民顾问 RCIC | 佳阳移民",
     description: "配偶团聚、父母团聚、学签、工签、PR、入籍和枫叶卡更新。首次咨询免费。",
-    images: ["/logo.png"],
+    images: ["/og-image.png"],
   },
 }
 
@@ -210,12 +210,14 @@ const faqSchema = {
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "LegalService",
+  "@type": ["LegalService", "LocalBusiness"],
   "name": "佳阳移民 JiaYang Immigration",
+  "image": "https://jiayangimmigration.com/logo.png",
   "description": "Richmond BC RCIC 持牌移民顾问公司，受 CICC 监管，提供难民、家庭团聚、留学、旅游探亲、延期续签、入籍及枫叶卡更新等全面移民服务。",
   "url": "https://jiayangimmigration.com",
   "telephone": "+16042386686",
   "email": "jy.simon.ca@gmail.com",
+  "priceRange": "$1,500-$4,000 CAD",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "5599 Cooney Rd, Unit 2",
@@ -223,6 +225,11 @@ const schema = {
     "addressRegion": "BC",
     "postalCode": "V6X 3M6",
     "addressCountry": "CA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 49.1733266,
+    "longitude": -123.1319772
   },
   "areaServed": ["Richmond BC", "Vancouver", "Burnaby", "Surrey", "Coquitlam", "New Westminster", "Delta", "Greater Vancouver", "British Columbia", "Canada", "China"],
   "knowsAbout": seoKeywords,
