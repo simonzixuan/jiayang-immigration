@@ -12,28 +12,12 @@ type ServicePageProps = {
 
 const localSeoKeywords = [
   "Richmond BC immigration services",
+  "Richmond 持牌移民顾问 RCIC",
   "Chinese immigration services Richmond BC",
-  "Immigration consultation Richmond BC",
-  "RCIC immigration consultant Richmond BC",
-  "CICC regulated immigration consultant",
-  "licensed immigration consultant Richmond",
-  "Canada immigration services Richmond",
-  "Vancouver immigration services",
-  "Greater Vancouver immigration services",
-  "Canada PR application help",
-  "Permanent residence application help",
-  "Immigration help Richmond BC",
-  "列治文移民服务",
-  "Richmond 移民服务",
-  "Richmond 持牌移民顾问",
-  "列治文持牌移民顾问",
-  "加拿大 RCIC 移民顾问",
-  "CICC 监管移民顾问",
-  "温哥华移民服务",
-  "加拿大移民咨询",
-  "加拿大 PR 申请",
-  "中文移民服务列治文",
   "华人移民服务 Richmond",
+  "CICC regulated immigration consultant",
+  "Greater Vancouver immigration services",
+  "大温哥华移民服务",
 ]
 
 const relatedServiceSlugs: Record<string, string[]> = {
@@ -76,13 +60,13 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
       locale: "zh_CN",
       alternateLocale: ["en_CA"],
       type: "article",
-      images: [{ url: "/logo.png", width: 512, height: 512, alt: "佳阳移民 JiaYang Immigration" }],
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "佳阳移民 JiaYang Immigration" }],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: service.metaTitle,
       description: service.description,
-      images: ["/logo.png"],
+      images: ["/og-image.png"],
     },
   }
 }

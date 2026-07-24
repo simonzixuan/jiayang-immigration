@@ -24,7 +24,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${article.title} | 佳阳移民`,
     description: article.summary || "",
-    openGraph: { title: article.title, description: article.summary || "" },
+    openGraph: {
+      title: article.title,
+      description: article.summary || "",
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "佳阳移民 JiaYang Immigration" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.summary || "",
+      images: ["/og-image.png"],
+    },
   }
 }
 
