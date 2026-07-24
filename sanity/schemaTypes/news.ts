@@ -7,7 +7,13 @@ export default defineType({
   fields: [
     defineField({ name: "title", title: "标题", type: "string" }),
     defineField({ name: "titleEn", title: "英文标题", type: "string" }),
-    defineField({ name: "slug", title: "链接", type: "slug", options: { source: "title" } }),
+    defineField({
+      name: "slug",
+      title: "网址别名（Slug）",
+      description: "本站文章链接用的短标识，例如 express-entry-2026-requirements。不要粘贴新闻来源的原始网址，点 Generate 从标题自动生成即可。",
+      type: "slug",
+      options: { source: "title" },
+    }),
     defineField({ name: "publishedAt", title: "发布日期", type: "datetime" }),
     defineField({ name: "summary", title: "摘要", type: "text", rows: 3 }),
     defineField({ name: "summaryEn", title: "英文摘要", type: "text", rows: 3 }),
