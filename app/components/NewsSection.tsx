@@ -15,6 +15,8 @@ type NewsItem = {
   summaryEn?: string
 }
 
+const validSlug = /^[a-z0-9]+(-[a-z0-9]+)*$/
+
 export default function NewsSection() {
   const { lang } = useLang()
   const [news, setNews] = useState<NewsItem[]>([])
@@ -51,14 +53,14 @@ export default function NewsSection() {
                 <p className="flex-1 text-sm leading-relaxed text-[#5A6A82]">
                   {lang === "zh" ? item.summary : (item.summaryEn || item.summary)}
                 </p>
-                {item.slug?.current && (
+                {item.slug?.current && validSlug.test(item.slug.current) && (
                   <p className="mt-4 text-xs font-medium text-[#C4873A]">
                     {lang === "zh" ? "阅读全文 →" : "Read more →"}
                   </p>
                 )}
               </div>
             )
-            return item.slug?.current ? (
+            return item.slug?.current && validSlug.test(item.slug.current) ? (
               <Link key={item._id} href={`/blog/${item.slug.current}`} className="h-full">{card}</Link>
             ) : (
               <div key={item._id} className="h-full">{card}</div>
