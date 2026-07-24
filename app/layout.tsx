@@ -198,6 +198,17 @@ const schema = {
     "latitude": 49.1733266,
     "longitude": -123.1319772
   },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "09:00",
+    "closes": "17:00"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "24"
+  },
   "areaServed": ["Richmond BC", "Vancouver", "Burnaby", "Surrey", "Coquitlam", "New Westminster", "Delta", "Greater Vancouver", "British Columbia", "Canada", "China"],
   "knowsAbout": seoKeywords,
   "hasOfferCatalog": {
