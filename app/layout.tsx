@@ -201,8 +201,8 @@ const schema = {
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    "opens": "09:00",
-    "closes": "17:00"
+    "opens": "10:00",
+    "closes": "17:30"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
