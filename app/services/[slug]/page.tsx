@@ -3,7 +3,6 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import Header from "../../components/Header"
 import FloatingContact from "../../components/FloatingContact"
-import { LangProvider } from "../../context/lang"
 import { getServicePage, servicePages, siteUrl } from "../service-data"
 
 type ServicePageProps = {
@@ -115,7 +114,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         streetAddress: "5599 Cooney Rd, Unit 2",
         addressLocality: "Richmond",
         addressRegion: "BC",
-        postalCode: "V6X 3M6",
+        postalCode: "V6X 0N8",
         addressCountry: "CA",
       },
     },
@@ -143,7 +142,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   }
 
   return (
-    <LangProvider>
+    <>
       <main className="min-h-screen bg-[#F7F9FC] text-[#10213B]">
         <Header />
 
@@ -181,7 +180,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               <div className="mt-8 space-y-4 border-t border-[#E6EDF5] pt-6">
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.2em] text-[#9B6727]">Office</p>
-                  <p className="mt-2 text-sm text-[#10213B]">5599 Cooney Rd, Unit 2, Richmond, BC V6X 3M6</p>
+                  <p className="mt-2 text-sm text-[#10213B]">5599 Cooney Rd, Unit 2, Richmond, BC V6X 0N8</p>
                 </div>
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.2em] text-[#9B6727]">Contact</p>
@@ -286,6 +285,6 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       </main>
-    </LangProvider>
+    </>
   )
 }

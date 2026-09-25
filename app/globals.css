@@ -2,12 +2,12 @@
 @plugin "@tailwindcss/typography";
 
 @theme inline {
-  --font-sans: var(--font-noto-sans);
-  --font-display: var(--font-lora);
+  --font-sans: "Times New Roman", Times, var(--font-noto-sans), serif;
+  --font-display: "Times New Roman", Times, var(--font-noto-sans), serif;
 }
 
 @utility font-display {
-  font-family: var(--font-lora), serif;
+  font-family: "Times New Roman", Times, var(--font-noto-sans), serif;
 }
 
 body {

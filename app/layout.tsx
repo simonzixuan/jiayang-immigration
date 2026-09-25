@@ -1,19 +1,13 @@
 import type { Metadata } from "next"
-import { Noto_Sans_SC, Lora } from "next/font/google"
+import { Noto_Sans_SC } from "next/font/google"
 import Script from "next/script"
 import "./globals.css"
+import { LangProvider } from "./context/lang"
 
 const notoSansSC = Noto_Sans_SC({
   variable: "--font-noto-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
-})
-
-const lora = Lora({
-  variable: "--font-lora",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
 })
 
 const seoKeywords = [
@@ -140,7 +134,7 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "Where can I find a licensed RCIC immigration consultant in Richmond BC?",
-      "acceptedAnswer": { "@type": "Answer", "text": "JiaYang Immigration is a licensed RCIC immigration consulting firm located at 5599 Cooney Rd, Unit 2, Richmond BC V6X 3M6. We offer free initial consultations and serve clients across the Greater Vancouver area. Call us at +1 (604) 238-6686." }
+      "acceptedAnswer": { "@type": "Answer", "text": "JiaYang Immigration is a licensed RCIC immigration consulting firm located at 5599 Cooney Rd, Unit 2, Richmond BC V6X 0N8. We offer free initial consultations and serve clients across the Greater Vancouver area. Call us at +1 (604) 238-6686." }
     },
     {
       "@type": "Question",
@@ -190,7 +184,7 @@ const schema = {
     "streetAddress": "5599 Cooney Rd, Unit 2",
     "addressLocality": "Richmond",
     "addressRegion": "BC",
-    "postalCode": "V6X 3M6",
+    "postalCode": "V6X 0N8",
     "addressCountry": "CA"
   },
   "geo": {
@@ -232,13 +226,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="zh" className={`${notoSansSC.variable} ${lora.variable} h-full`}>
+    <html lang="zh" className={`${notoSansSC.variable} h-full`}>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </head>
       <body className="min-h-full flex flex-col">
-        {children}
+        <LangProvider>{children}</LangProvider>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-04DZ8SYV48" strategy="afterInteractive" />
         <Script id="ga-init" strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-04DZ8SYV48');`}</Script>
       </body>

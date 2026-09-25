@@ -50,7 +50,7 @@ export default function NewsSection() {
                 <h3 className="mb-3 text-base font-medium leading-snug text-[#1B2B4E]">
                   {lang === "zh" ? item.title : (item.titleEn || item.title)}
                 </h3>
-                <p className="flex-1 text-sm leading-relaxed text-[#5A6A82]">
+                <p className="flex-1 text-[calc(0.875rem+2pt)] leading-relaxed text-[#5A6A82]">
                   {lang === "zh" ? item.summary : (item.summaryEn || item.summary)}
                 </p>
                 {item.slug?.current && validSlug.test(item.slug.current) && (

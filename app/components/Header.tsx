@@ -2,20 +2,23 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { useLang } from "../context/lang"
 
 const nav = {
   zh: [
-    { label: "服务", href: "#services" },
-    { label: "关于我们", href: "#about" },
-    { label: "客户评价", href: "#testimonials" },
-    { label: "联系我们", href: "#contact" },
+    { label: "护理项目", href: "/nursing" },
+    { label: "服务", href: "/#services" },
+    { label: "关于我们", href: "/#about" },
+    { label: "客户评价", href: "/#testimonials" },
+    { label: "联系我们", href: "/#contact" },
   ],
   en: [
-    { label: "Services", href: "#services" },
-    { label: "About", href: "#about" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "Contact", href: "#contact" },
+    { label: "Nursing", href: "/nursing" },
+    { label: "Services", href: "/#services" },
+    { label: "About", href: "/#about" },
+    { label: "Testimonials", href: "/#testimonials" },
+    { label: "Contact", href: "/#contact" },
   ],
 }
 
@@ -28,7 +31,7 @@ export default function Header() {
     <>
       <nav className="fixed top-0 left-0 right-0 z-[60] border-b border-[#DDE6F0] bg-white/92 shadow-[0_12px_36px_rgba(16,33,59,0.08)] backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 h-[4.5rem] flex items-center justify-between">
-          <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3" aria-label={lang === "zh" ? "佳阳移民首页" : "JiaYang Immigration home"}>
             <Image
               src="/logo-icon.png"
               alt="logo"
@@ -41,12 +44,12 @@ export default function Header() {
               <span className="text-sm font-medium text-[#10213B] tracking-wide">佳阳移民</span>
               <span className="text-[10px] tracking-[0.2em] uppercase text-[#C4873A]">JiaYang Immigration</span>
             </div>
-          </div>
-          <div className="hidden md:flex items-center gap-8 text-[11px] tracking-[0.15em] uppercase text-[#52647C]">
+          </Link>
+          <div className="hidden md:flex items-center gap-4 lg:gap-8 text-[11px] tracking-[0.15em] uppercase text-[#52647C]">
             {links.map(link => (
-              <a key={link.label} href={link.href} className="hover:text-[#10213B] transition-colors">
+              <Link key={link.label} href={link.href} className="hover:text-[#10213B] transition-colors">
                 {link.label}
-              </a>
+              </Link>
             ))}
             <button
               onClick={toggle}
@@ -71,14 +74,14 @@ export default function Header() {
       {open && (
         <div className="fixed inset-0 top-[4.5rem] z-50 bg-white flex flex-col items-center justify-center gap-8 md:hidden">
           {links.map(link => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               onClick={() => setOpen(false)}
               className="text-[#10213B] text-base tracking-[0.3em] uppercase font-light"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           <button
             onClick={() => { toggle(); setOpen(false) }}

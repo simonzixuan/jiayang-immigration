@@ -3,13 +3,13 @@
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { LangProvider, useLang } from "./context/lang"
+import { useLang } from "./context/lang"
 import Header from "./components/Header"
 import NewsSection from "./components/NewsSection"
 import FloatingContact from "./components/FloatingContact"
 
-const officeAddress = "5599 Cooney Rd, Unit 2, Richmond, BC V6X 3M6"
-const officeMapUrl = "https://www.google.com/maps/search/?api=1&query=5599%20Cooney%20Rd%20Unit%202%20Richmond%20BC%20V6X%203M6"
+const officeAddress = "5599 Cooney Rd, Unit 2, Richmond, BC V6X 0N8"
+const officeMapUrl = "https://www.google.com/maps/search/?api=1&query=5599%20Cooney%20Rd%20Unit%202%20Richmond%20BC%20V6X%200N8"
 
 const t = {
   zh: {
@@ -228,45 +228,63 @@ function Home() {
         <div className="absolute inset-0 z-0 md:left-[39%]" style={{backgroundImage: "url('/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.48}} />
         <div className="absolute inset-0 z-0 bg-[linear-gradient(90deg,#F2F6FB_0%,rgba(242,246,251,0.94)_38%,rgba(242,246,251,0.56)_62%,rgba(242,246,251,0.18)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 z-0 h-28 bg-[linear-gradient(180deg,rgba(242,246,251,0)_0%,#F7F9FC_88%)]" />
-        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 py-20 md:py-[6.5rem] w-full motion-safe:animate-[fade-in-up_0.7s_ease-out_both]">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 pt-20 pb-32 md:pt-[6.5rem] md:pb-36 w-full motion-safe:animate-[fade-in-up_0.7s_ease-out_both]">
           <p className="text-[11px] tracking-[0.22em] uppercase text-[#9B6727] mb-7 sm:tracking-[0.34em]">{tx.heroTag}</p>
           <h1 className="font-display text-[2.2rem] sm:text-5xl md:text-7xl font-medium text-[#10213B] leading-[1.08] mb-6 max-w-[9.8em] md:max-w-3xl">
             {tx.heroTitle}
           </h1>
           <p className="text-[#9B6727] text-lg md:text-xl font-display italic mb-6">{tx.heroSub}</p>
-          <p className="text-[#52647C] text-base leading-relaxed mb-8 max-w-xl">{tx.heroDesc}</p>
-          <div className="mb-10 flex max-w-2xl flex-wrap gap-2">
-            {tx.trustItems.map((item) => (
-              <span key={item} className="shrink-0 rounded-full border border-[#DDE6F0] bg-white/70 px-4 py-2 text-[10px] uppercase tracking-[0.12em] text-[#52647C] backdrop-blur sm:text-[11px] sm:tracking-[0.16em]">
-                {item}
-              </span>
-            ))}
-          </div>
-          {heroFormState === "success" ? (
-            <div className="flex items-center gap-3 rounded-2xl border border-[#C4873A]/40 bg-white/80 px-6 py-4 backdrop-blur">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#C4873A] text-white text-sm">✓</span>
-              <p className="text-sm font-medium text-[#10213B]">{tx.heroMiniSuccess}</p>
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          <div className="min-w-0">
+            <p className="text-[#52647C] text-[calc(1rem+2pt)] leading-relaxed mb-3 max-w-xl">{tx.heroDesc}</p>
+            <p className="text-base font-medium text-[#52647C] mb-8">
+              {lang === "zh" ? "RCIC 注册编号" : "RCIC Registration Numbers"}: R529798; R713063
+            </p>
+            <div className="mb-10 flex max-w-2xl flex-wrap gap-2">
+              {tx.trustItems.map((item) => (
+                <span key={item} className="shrink-0 rounded-full border border-[#DDE6F0] bg-white/70 px-4 py-2 text-[10px] uppercase tracking-[0.12em] text-[#52647C] backdrop-blur sm:text-[11px] sm:tracking-[0.16em]">
+                  {item}
+                </span>
+              ))}
             </div>
-          ) : (
-            <form onSubmit={handleHeroSubmit} className="w-full max-w-xl">
-              <div className="flex flex-col gap-2 sm:flex-row">
-                <input required type="text" name="name" placeholder={tx.heroMiniName} className="h-12 flex-1 rounded-full border border-[#C7D2E0] bg-white/90 px-5 text-sm text-[#10213B] placeholder-[#9AAAB8] outline-none backdrop-blur focus:border-[#C4873A]" />
-                <input required type="tel" name="phone" placeholder={tx.heroMiniPhone} className="h-12 flex-1 rounded-full border border-[#C7D2E0] bg-white/90 px-5 text-sm text-[#10213B] placeholder-[#9AAAB8] outline-none backdrop-blur focus:border-[#C4873A]" />
+            {heroFormState === "success" ? (
+              <div className="flex items-center gap-3 rounded-2xl border border-[#C4873A]/40 bg-white/80 px-6 py-4 backdrop-blur">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#C4873A] text-white text-sm">✓</span>
+                <p className="text-sm font-medium text-[#10213B]">{tx.heroMiniSuccess}</p>
               </div>
-              <div className="mt-2 flex flex-col gap-2 sm:flex-row">
-                <select required name="service" className="h-12 flex-1 rounded-full border border-[#C7D2E0] bg-white/90 px-5 text-sm text-[#10213B] outline-none backdrop-blur focus:border-[#C4873A]">
-                  <option value="">{tx.heroMiniService}</option>
-                  {tx.services.map(s => <option key={s.title} value={s.title}>{s.title}</option>)}
-                </select>
-                <button type="submit" disabled={heroFormState === "submitting"} className="h-12 shrink-0 rounded-full bg-[#C4873A] px-7 text-[11px] uppercase tracking-[0.24em] text-white shadow-[0_16px_36px_rgba(196,135,58,0.32)] transition-colors hover:bg-[#A06A20] disabled:opacity-60">
-                  {heroFormState === "submitting" ? "..." : tx.heroMiniBtn}
-                </button>
-              </div>
-              <p className="mt-3 text-[11px] text-[#7A8FA6]">
-                {lang === "zh" ? "首次咨询免费 · 提交后顾问会主动联系" : "Free initial consultation · We'll reach out after submission"}
-              </p>
-            </form>
-          )}
+            ) : (
+              <form onSubmit={handleHeroSubmit} className="w-full max-w-xl">
+                <div className="flex flex-col gap-2 sm:flex-row">
+                  <input required type="text" name="name" placeholder={tx.heroMiniName} className="h-12 flex-1 rounded-full border border-[#C7D2E0] bg-white/90 px-5 text-sm text-[#10213B] placeholder-[#9AAAB8] outline-none backdrop-blur focus:border-[#C4873A]" />
+                  <input required type="tel" name="phone" placeholder={tx.heroMiniPhone} className="h-12 flex-1 rounded-full border border-[#C7D2E0] bg-white/90 px-5 text-sm text-[#10213B] placeholder-[#9AAAB8] outline-none backdrop-blur focus:border-[#C4873A]" />
+                </div>
+                <div className="mt-2 flex flex-col gap-2 sm:flex-row">
+                  <select required name="service" className="h-12 flex-1 rounded-full border border-[#C7D2E0] bg-white/90 px-5 text-sm text-[#10213B] outline-none backdrop-blur focus:border-[#C4873A]">
+                    <option value="">{tx.heroMiniService}</option>
+                    <option value="Nursing career pathway">{lang === "zh" ? "护士赴加拿大项目" : "Nursing career pathway"}</option>
+                    {tx.services.map(s => <option key={s.title} value={s.title}>{s.title}</option>)}
+                  </select>
+                  <button type="submit" disabled={heroFormState === "submitting"} className="h-12 shrink-0 rounded-full bg-[#C4873A] px-7 text-[11px] uppercase tracking-[0.24em] text-white shadow-[0_16px_36px_rgba(196,135,58,0.32)] transition-colors hover:bg-[#A06A20] disabled:opacity-60">
+                    {heroFormState === "submitting" ? "..." : tx.heroMiniBtn}
+                  </button>
+                </div>
+                <p className="mt-3 text-[11px] text-[#7A8FA6]">
+                  {lang === "zh" ? "首次咨询免费 · 提交后顾问会主动联系" : "Free initial consultation · We'll reach out after submission"}
+                </p>
+              </form>
+            )}
+          </div>
+          <Link href="/nursing" className="group block overflow-hidden rounded-[1.75rem] border border-[#DDE6F0] bg-white shadow-[0_22px_60px_rgba(16,33,59,0.12)] transition-colors hover:border-[#C4873A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C4873A]">
+            <Image src="/nursing-career.png" alt={lang === "zh" ? "两位身穿蓝色制服的护士，AI 生成示意图" : "Two nurses in blue scrubs, AI-generated illustration"} width={1536} height={1024} sizes="(min-width: 1280px) 550px, (min-width: 1024px) 45vw, 100vw" className="aspect-[16/10] w-full object-cover" />
+            <div className="p-6 sm:p-8">
+              <p className="mb-3 text-xs uppercase tracking-[0.18em] text-[#9B6727]">{lang === "zh" ? "学习 · 工作 · 移民" : "Study · Work · Immigrate"}</p>
+              <h2 className="font-display text-2xl leading-snug text-[#10213B] sm:text-3xl">{lang === "zh" ? "您的加拿大护理生涯，从这里开始" : "Your nursing career in Canada starts here"}</h2>
+              <p className="mt-4 text-base leading-relaxed text-[#52647C]">{lang === "zh" ? "面向中国护理毕业生及在职护士，探索通往加拿大 BC 省列治文的职业发展之路。" : "A pathway from China to Richmond, British Columbia. Explore an opportunity for nursing graduates and experienced nurses."}</p>
+              <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#9B6727] group-hover:underline">{lang === "zh" ? "了解护理项目" : "Explore the nursing pathway"} <span aria-hidden="true">→</span></span>
+              <p className="mt-4 text-xs text-[#718096]">{lang === "zh" ? "AI 生成示意图" : "AI-generated illustration"}</p>
+            </div>
+          </Link>
+          </div>
         </div>
       </section>
 
@@ -302,7 +320,7 @@ function Home() {
                     {s.title}
                   </Link>
                 </h3>
-                <p className="text-[#5A6A82] text-sm leading-relaxed">{s.desc}</p>
+                <p className="text-[#5A6A82] text-[calc(0.875rem+2pt)] leading-relaxed">{s.desc}</p>
                 {"links" in s && s.links && (
                   <div className="mt-5 flex flex-wrap gap-2">
                     {s.links.map((link) => (
@@ -333,7 +351,7 @@ function Home() {
               <div key={s.num} className="relative rounded-2xl border border-[#253957] bg-white/[0.04] p-7">
                 <p className="font-display text-4xl font-light text-[#C4873A] mb-4">{s.num}</p>
                 <h3 className="text-base font-medium text-white mb-3">{s.title}</h3>
-                <p className="text-[#A8B8D0] text-sm leading-relaxed">{s.desc}</p>
+                <p className="text-[#A8B8D0] text-[calc(0.875rem+2pt)] leading-relaxed">{s.desc}</p>
                 {i < tx.steps.length - 1 && (
                   <span className="hidden md:block absolute top-8 -right-3 text-[#C4873A] text-lg z-10">→</span>
                 )}
@@ -349,8 +367,8 @@ function Home() {
           <div>
             <p className="text-[11px] tracking-[0.34em] uppercase text-[#9B6727] mb-4">{tx.aboutTag}</p>
             <h2 className="font-display text-4xl md:text-5xl font-medium text-[#1B2B4E] mb-8">{tx.aboutTitle}</h2>
-            <p className="text-[#5A6A82] leading-relaxed mb-4">{tx.aboutDesc1}</p>
-            <p className="text-[#5A6A82] leading-relaxed mb-10">{tx.aboutDesc2}</p>
+            <p className="text-[#5A6A82] text-[calc(1rem+2pt)] leading-relaxed mb-4">{tx.aboutDesc1}</p>
+            <p className="text-[#5A6A82] text-[calc(1rem+2pt)] leading-relaxed mb-10">{tx.aboutDesc2}</p>
             <div className="inline-flex items-center gap-4 rounded-2xl bg-[#F7F9FC] border border-[#DDE6F0] px-6 py-4">
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1B2B4E] text-white">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -363,15 +381,32 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="rounded-[2rem] bg-[#10213B] p-8 sm:p-12 text-white shadow-[0_24px_70px_rgba(16,33,59,0.18)]">
-            <p className="font-display text-2xl italic text-[#C4873A] mb-6">
-              {lang === "zh" ? "「用心做好细节，以诚赢得信赖」" : '"Attention to detail, trust through integrity."'}
-            </p>
-            <p className="text-[#A8B8D0] text-sm leading-relaxed">
-              {lang === "zh"
-                ? "多年深耕移民行业，佳阳移民始终坚持以客户利益为先，用专业赢得每一位客户的信任。"
-                : "With years of deep expertise in Canadian immigration, JiaYang Immigration has put clients first, earning trust through professionalism and dedication."}
-            </p>
+          <div className="space-y-6">
+            <figure className="overflow-hidden rounded-[2rem] border border-[#DDE6F0] bg-[#F7F9FC] shadow-[0_24px_70px_rgba(16,33,59,0.12)]">
+              <Image
+                src="/office-exterior.jpg"
+                alt={lang === "zh" ? "佳阳移民列治文办公室外观及门店招牌" : "JiaYang Immigration Richmond office exterior and storefront sign"}
+                width={1199}
+                height={1663}
+                sizes="(min-width: 1280px) 608px, (min-width: 768px) calc((100vw - 112px) / 2), calc(100vw - 40px)"
+                className="h-auto w-full"
+              />
+              <figcaption className="px-6 py-5">
+                <p className="text-lg font-medium text-[#1B2B4E]">{lang === "zh" ? "我们的列治文办公室" : "Our Richmond Office"}</p>
+                <p className="mt-2 text-base leading-relaxed text-[#5A6A82]">{officeAddress}</p>
+                <a href={officeMapUrl} target="_blank" rel="noreferrer" className="mt-3 inline-block text-sm font-medium text-[#9B6727] hover:underline">{tx.mapLink}</a>
+              </figcaption>
+            </figure>
+            <div className="rounded-[2rem] bg-[#10213B] p-8 sm:p-12 text-white shadow-[0_24px_70px_rgba(16,33,59,0.18)]">
+              <p className="font-display text-2xl italic text-[#C4873A] mb-6">
+                {lang === "zh" ? "「用心做好细节，以诚赢得信赖」" : '"Attention to detail, trust through integrity."'}
+              </p>
+              <p className="text-[#A8B8D0] text-[calc(0.875rem+2pt)] leading-relaxed">
+                {lang === "zh"
+                  ? "多年深耕移民行业，佳阳移民始终坚持以客户利益为先，用专业赢得每一位客户的信任。"
+                  : "With years of deep expertise in Canadian immigration, JiaYang Immigration has put clients first, earning trust through professionalism and dedication."}
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -394,7 +429,7 @@ function Home() {
                   <span className="text-[#C4873A] text-xl shrink-0">{openFaq === i ? "−" : "+"}</span>
                 </button>
                 {openFaq === i && (
-                  <p className="text-[#5A6A82] text-sm leading-relaxed pb-6 motion-safe:animate-[fade-in-up_0.22s_ease-out_both]">{item.a}</p>
+                  <p className="text-[#5A6A82] text-[calc(0.875rem+2pt)] leading-relaxed pb-6 motion-safe:animate-[fade-in-up_0.22s_ease-out_both]">{item.a}</p>
                 )}
               </div>
             ))}
@@ -415,7 +450,7 @@ function Home() {
                 <div className="flex gap-1 mb-6">
                   {[1,2,3,4,5].map(i => <span key={i} className="text-[#C4873A] text-sm">★</span>)}
                 </div>
-                <p className="text-[#52647C] leading-relaxed mb-6 flex-1">&ldquo;{r.text}&rdquo;</p>
+                <p className="text-[#52647C] text-[calc(1rem+2pt)] leading-relaxed mb-6 flex-1">&ldquo;{r.text}&rdquo;</p>
                 <div className="flex items-center justify-between">
                   <p className="text-sm font-medium text-[#10213B]">{r.name}</p>
                   <span className="text-[10px] tracking-[0.2em] uppercase text-[#C4873A] border border-[#C4873A] px-2 py-1">{r.type}</span>
@@ -435,7 +470,7 @@ function Home() {
           <div>
             <p className="mb-4 text-[11px] uppercase tracking-[0.34em] text-[#C4873A]">{tx.contactTag}</p>
             <h2 className="mb-5 font-display text-4xl font-medium text-white md:text-5xl">{tx.contactTitle}</h2>
-            <p className="max-w-lg leading-relaxed text-[#A8B8D0]">{tx.contactDesc}</p>
+            <p className="max-w-lg text-[calc(1rem+2pt)] leading-relaxed text-[#A8B8D0]">{tx.contactDesc}</p>
 
             <div className="mt-10 divide-y divide-[#2A3E60] rounded-[1.75rem] border border-[#2A3E60] bg-white/[0.04]">
               <div className="grid gap-2 px-5 py-5 sm:grid-cols-[6rem_1fr]">
@@ -449,7 +484,7 @@ function Home() {
               <div className="grid gap-2 px-5 py-5 sm:grid-cols-[6rem_1fr]">
                 <span className="text-[10px] uppercase tracking-[0.24em] text-[#C4873A]">{tx.address}</span>
                 <div>
-                  <a href={officeMapUrl} target="_blank" rel="noreferrer" className="text-sm leading-relaxed text-white transition-colors hover:text-[#C4873A]">
+                  <a href={officeMapUrl} target="_blank" rel="noreferrer" className="text-[calc(0.875rem+2pt)] leading-relaxed text-white transition-colors hover:text-[#C4873A]">
                     {officeAddress}
                   </a>
                   <div className="mt-2 flex flex-wrap gap-2">
@@ -492,6 +527,7 @@ function Home() {
               <input type="email" name="email" placeholder={tx.formEmail} className="w-full rounded-2xl border border-[#314765] bg-white/[0.06] px-4 py-3 text-sm text-white placeholder-[#7F91AA] outline-none transition-colors focus:border-[#C4873A]" />
               <select required name="service" className="w-full rounded-2xl border border-[#314765] bg-[#1B3658] px-4 py-3 text-sm text-white outline-none transition-colors focus:border-[#C4873A]">
                 <option value="">{tx.formService}</option>
+                <option value="Nursing career pathway">{lang === "zh" ? "护士赴加拿大项目" : "Nursing career pathway"}</option>
                 {tx.services.map(s => <option key={s.title} value={s.title}>{s.title}</option>)}
               </select>
               <textarea name="message" rows={5} placeholder={tx.formMsg} className="w-full resize-none rounded-2xl border border-[#314765] bg-white/[0.06] px-4 py-3 text-sm text-white placeholder-[#7F91AA] outline-none transition-colors focus:border-[#C4873A]" />
@@ -521,8 +557,6 @@ function Home() {
 
 export default function Page() {
   return (
-    <LangProvider>
-      <Home />
-    </LangProvider>
+    <Home />
   )
 }
