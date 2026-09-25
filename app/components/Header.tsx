@@ -45,7 +45,7 @@ export default function Header() {
               <span className="text-[10px] tracking-[0.2em] uppercase text-[#C4873A]">JiaYang Immigration</span>
             </div>
           </Link>
-          <div className="hidden md:flex items-center gap-4 lg:gap-8 text-[11px] tracking-[0.15em] uppercase text-[#52647C]">
+          <div className="hidden lg:flex items-center gap-6 text-base text-[#52647C]">
             {links.map(link => (
               <Link key={link.label} href={link.href} className="hover:text-[#10213B] transition-colors">
                 {link.label}
@@ -53,7 +53,7 @@ export default function Header() {
             ))}
             <button
               onClick={toggle}
-              className="rounded-full border border-[#C4873A] text-[#9B6727] px-4 py-2 text-[10px] tracking-[0.2em] uppercase hover:bg-[#C4873A] hover:text-white transition-colors"
+              className="rounded-full border border-[#C4873A] text-[#9B6727] px-4 py-2 text-sm hover:bg-[#C4873A] hover:text-white transition-colors"
             >
               {lang === "zh" ? "EN" : "中文"}
             </button>
@@ -61,7 +61,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setOpen(v => !v)}
-            className="md:hidden flex flex-col justify-center items-center gap-[5px] w-10 h-10 rounded-full border border-[#DDE6F0]"
+            className="lg:hidden flex flex-col justify-center items-center gap-[5px] w-10 h-10 rounded-full border border-[#DDE6F0]"
             aria-label={open ? "关闭菜单" : "打开菜单"}
           >
             <span className={`block w-5 h-px bg-[#10213B] transition-all duration-200 origin-center ${open ? "rotate-45 translate-y-[6px]" : ""}`} />
@@ -72,20 +72,20 @@ export default function Header() {
       </nav>
 
       {open && (
-        <div className="fixed inset-0 top-[4.5rem] z-50 bg-white flex flex-col items-center justify-center gap-8 md:hidden">
+        <div className="fixed inset-0 top-[4.5rem] z-50 bg-white flex flex-col items-center justify-center gap-8 lg:hidden">
           {links.map(link => (
             <Link
               key={link.label}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="text-[#10213B] text-base tracking-[0.3em] uppercase font-light"
+              className="text-[#10213B] text-lg font-medium"
             >
               {link.label}
             </Link>
           ))}
           <button
             onClick={() => { toggle(); setOpen(false) }}
-            className="rounded-full border border-[#C4873A] text-[#9B6727] px-8 py-3 text-[11px] tracking-[0.2em] uppercase"
+            className="rounded-full border border-[#C4873A] text-[#9B6727] px-8 py-3 text-base"
           >
             {lang === "zh" ? "Switch to English" : "切换中文"}
           </button>
