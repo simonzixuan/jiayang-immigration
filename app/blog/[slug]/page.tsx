@@ -24,7 +24,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${article.title} | 佳阳移民`,
     description: article.summary || "",
+    alternates: { canonical: `/blog/${slug}` },
     openGraph: {
+      url: `/blog/${slug}`,
+      type: "article",
       title: article.title,
       description: article.summary || "",
       images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "佳阳移民 JiaYang Immigration" }],

@@ -222,6 +222,15 @@ function Home() {
   return (
     <main className="flex-1 bg-[#F7F9FC] text-[#10213B]">
       <Header />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: tx.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      }).replace(/</g, "\\u003c") }} />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#F2F6FB] pt-[4.5rem]">
